@@ -1,0 +1,4 @@
+Barack Obama,DEM
+John McCain,REP
+Ron Paul,CNS
+Ralph Nader,GRN

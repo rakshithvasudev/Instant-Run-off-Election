@@ -1,0 +1,2 @@
+Barack Obama,John McCain,Ralph Nader,Ron Paul
+John McCain,Barack Obama,Ron Paul,Ralph Nader

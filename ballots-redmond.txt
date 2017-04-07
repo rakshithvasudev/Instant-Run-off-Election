@@ -1,0 +1,7 @@
+Stuart Reges,Barack Obama,John McCain,Ron Paul,Ralph Nader
+Ron Paul,Barack Obama,John McCain,Ralph Nader
+Captain Planet,John McCain,Ron Paul,Barack Obama,Ralph Nader
+Barack Obama,John McCain,Ron Paul,Ralph Nader
+Stuart Reges,Ron Paul,Barack Obama,John McCain,Ralph Nader
+Barack Obama,Captain Planet,Stuart Reges,John McCain,Ron Paul,Ralph Nader
+Ron Paul,Stuart Reges,John McCain,Barack Obama,Ralph Nader

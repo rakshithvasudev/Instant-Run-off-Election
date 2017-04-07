@@ -1,0 +1,13 @@
+Ron Paul,Barack Obama,John McCain,Ralph Nader
+John McCain,Ron Paul,Barack Obama,Ralph Nader
+Barack Obama,Ralph Nader,John McCain,Ron Paul
+John McCain,Ron Paul,Barack Obama,Ralph Nader
+John McCain,Barack Obama,Ron Paul,Ralph Nader
+John McCain,Ron Paul,Ralph Nader,Barack Obama
+Ralph Nader,Ron Paul,Barack Obama,John McCain
+Ron Paul,John McCain,Barack Obama,Ralph Nader
+Ron Paul,Barack Obama,John McCain,Ralph Nader
+John McCain,Barack Obama,Ralph Nader,Ron Paul
+John McCain,Ron Paul,Barack Obama,Ralph Nader
+Barack Obama,Ron Paul,John McCain,Ralph Nader
+Ron Paul,Barack Obama,Ralph Nader,John McCain
