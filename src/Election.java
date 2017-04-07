@@ -9,7 +9,7 @@ public class Election {
     private Map<String, Candidate> candidates;
     private Map<String,Candidate> votes;
     private boolean isOpen;
-    public static Election electionInstance;
+    private volatile static Election electionInstance;
 
     private Election() {
         candidates = new LinkedHashMap<>();
@@ -21,6 +21,7 @@ public class Election {
             synchronized (Election.class){
                 if(electionInstance==null){
                     electionInstance=new Election();
+                    new Election();
                 }
             }
         }
@@ -28,7 +29,15 @@ public class Election {
     }
 
 
+    public Map<String, Candidate> getCandidates() {
+        return candidates;
+    }
 
+    public Map<String, Candidate> getVotes() {
+        return votes;
+    }
 
-
+    public boolean isOpen() {
+        return isOpen;
+    }
 }
