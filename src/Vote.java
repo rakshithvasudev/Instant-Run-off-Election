@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -10,11 +11,16 @@ public class Vote {
 
     public Vote(String... args) {
         preferences=new ArrayList<>();
-        for (String currentString:args) {
-            preferences.add(currentString);
-        }
+
+        preferences.addAll(Arrays.asList(args));
 
         System.out.println(preferences);
     }
+
+    public List<String> getPreferences() {
+        return preferences;
+    }
+
+
 }
 
