@@ -5,5 +5,8 @@ public class Delete {
 
     public static void main(String[] args) {
         Vote v1 = new Vote("Barack","Himmler","Trump","Screem");
+
+        Election election = Election.getElectionInstance();
+        election.readCandidates();
     }
 }
