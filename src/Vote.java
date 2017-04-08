@@ -14,7 +14,6 @@ public class Vote {
 
         preferences.addAll(Arrays.asList(args));
 
-        System.out.println(preferences);
     }
 
     public List<String> getPreferences() {

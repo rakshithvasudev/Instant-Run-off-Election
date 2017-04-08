@@ -44,23 +44,30 @@ public class Election {
         return isOpen;
     }
 
-    public static boolean readCandidates(){
+    /**
+     * Reads from the candidate file and passes the
+     * to the value to candidate adder.
+     * @return true when successfully read. False otherwise.
+     */
+    public boolean readCandidates(){
         try {
-            Scanner scanner = new Scanner(new File("candidates.txt")).useDelimiter(",|\n");
-            int counter=0;
-                while (scanner.hasNext()){
-                    if(counter%2==0)
-                        System.out.println("Candidate: "+scanner.next());
-                    if(counter%2!=0)
-                        System.out.println("Party: "+scanner.next());
-                    counter++;
-                }
-
+            Scanner scanner = new Scanner(new File("candidates.txt")).useDelimiter("\n");
+            while (scanner.hasNext()){
+                String[] candidateAndParty = scanner.next().split(",");
+                System.out.println(Arrays.toString(candidateAndParty));
+                addCandidate(candidateAndParty[0],candidateAndParty[1]);
+            }
             return true;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
         return false;
+    }
+
+
+    private void addCandidate(String candidateName, String partyName){
+
+        //candidates.put(name,new )
+
     }
 }
