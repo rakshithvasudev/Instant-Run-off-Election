@@ -1,7 +1,8 @@
 /**
  * Created by Rakshith on 4/8/2017.
- * Creates a series of Candidates based on their
- * party partyName.
+ * This is a Factory pattern for the candidate that
+ * creates a new Candidate based on their
+ * partyName.
  */
 public class CandidateFactory {
     public static Candidate createCandidate(String candidateName,String partyName){

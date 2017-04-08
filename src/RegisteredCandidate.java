@@ -6,6 +6,6 @@ public class RegisteredCandidate extends Candidate {
 
     public RegisteredCandidate(String name,Party party) {
         setName(name);
-        setPartyName(party);
+        setParty(party);
     }
 }

@@ -5,7 +5,7 @@ public abstract class Candidate implements Cloneable{
 
     private String name;
     private boolean isEliminated;
-    private Party partyName;
+    private Party party;
 
     public String getName() {
         return name;
@@ -23,12 +23,12 @@ public abstract class Candidate implements Cloneable{
         isEliminated = eliminated;
     }
 
-    public Party getPartyName() {
-        return partyName;
+    public Party getParty() {
+        return party;
     }
 
-    public void setPartyName(Party partyName) {
-        this.partyName = partyName;
+    public void setParty(Party partyName) {
+        this.party = partyName;
     }
 
     @Override
@@ -44,7 +44,7 @@ public abstract class Candidate implements Cloneable{
     public Candidate clone() {
         try{
            Candidate candidateCopy = (Candidate)super.clone();
-           candidateCopy.partyName=this.partyName;
+           candidateCopy.party=this.party;
            return candidateCopy;
         }catch (CloneNotSupportedException e){
             e.printStackTrace();
@@ -55,6 +55,7 @@ public abstract class Candidate implements Cloneable{
     @Override
     public int hashCode() {
         int a = 31 * name.hashCode();
+        a=party.hashCode()*a;
         a = ((isEliminated) ? 1231 : 1237) * a;
         return a;
     }
