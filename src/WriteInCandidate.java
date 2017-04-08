@@ -9,4 +9,6 @@ public class WriteInCandidate extends Candidate {
         setName(name);
         setParty(Party.valueOf("NOPARTY"));
     }
+
+
 }

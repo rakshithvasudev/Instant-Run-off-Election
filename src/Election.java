@@ -14,6 +14,7 @@ public class Election {
     private Map<String,Candidate> votes;
     private boolean isOpen;
     private volatile static Election electionInstance;
+    private PollingPlace pollingPlace;
 
     private Election() {
         isOpen=true;
@@ -21,6 +22,14 @@ public class Election {
         votes = new LinkedHashMap<>();
     }
 
+    /**
+     * Uses the singleton Pattern to get a unique Instance.
+     * Implements the lazy instantiation mechanism to achieve
+     * singularity in Election. Handles multithreaded environment
+     * issues.
+     * @return One and only Election Instance.
+     * Creates a new one if already not instantiated.
+     */
     public static Election getElectionInstance() {
         if(electionInstance==null){
             synchronized (Election.class){
@@ -42,13 +51,23 @@ public class Election {
         return votes;
     }
 
+    /**
+     * Checks if the opportunity for voting is allowed.
+     * @return true if there is still an opportunity to vote.
+     */
     public boolean isOpenStill() {
         return isOpen;
     }
 
     /**
+     * Closes the election for further votes.
+     */
+    public void closeElection(){isOpen=false;}
+
+    /**
      * Reads from the candidate file and passes the
-     * to the value to candidate adder.
+     * to the value to addCandidate() method which uses factory
+     * pattern to create a new candidate.
      * @return true when successfully read. False otherwise.
      */
     public boolean readCandidates(){
@@ -56,7 +75,6 @@ public class Election {
             Scanner scanner = new Scanner(new File("candidates.txt")).useDelimiter("\n");
             while (scanner.hasNext()){
                 String[] candidateAndParty = scanner.next().split(",");
-//                System.out.println(Arrays.toString(candidateAndParty));
                 addCandidate(candidateAndParty[0],candidateAndParty[1]);
             }
             return true;
@@ -67,15 +85,16 @@ public class Election {
     }
 
     /**
+     * Adds a candidate to the election.
      * Uses FactoryPattern to create a Candidate.
-     * Calls createCandidate() in CandidateFactory class.
+     * Calls createCandidate() in CandidateFactory class that
+     * returns a new appropriate candidate.
      * @param candidateName name of the candidate to be added.
      * @param partyName name of party added.
      */
     public  void addCandidate(String candidateName, String partyName){
         Candidate candidate = CandidateFactory.createCandidate(candidateName,partyName);
         candidates.put(candidate.getName(),candidate);
-        System.out.println(candidates);
-
     }
+
 }

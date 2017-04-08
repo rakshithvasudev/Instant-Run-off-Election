@@ -10,7 +10,7 @@
  * @version Spring 2017
  */
 public final class ElectionTextUI {
-	
+	Election election;
 	/**
 	 * Constructs a new text user interface for managing a election.
 	 */
@@ -18,7 +18,7 @@ public final class ElectionTextUI {
 		System.out.println("Election Vote Counter");
 
 		// TODO: initialization code can go here
-		crash("TODO: implement initialization code");
+		election =	election.getElectionInstance();
 	}
 	
 	/**
@@ -71,9 +71,11 @@ public final class ElectionTextUI {
 	// Reads data from a new polling place.
 	private void addPollingPlace() {
 		// when the election is not open,
-		System.out.println("The election is closed.");
-		System.out.println("No more polling places may be added.");
-		
+		if(!election.isOpenStill()){
+			System.out.println("The election is closed.");
+			System.out.println("No more polling places may be added.");
+		}
+
 		String pollingPlaceName = ValidInputReader.getValidString("Name of polling place:", "^[a-zA-Z0-9 ]+$");
 		
 		System.out.println("Added " + pollingPlaceName + ".");
@@ -91,7 +93,7 @@ public final class ElectionTextUI {
 		System.out.println("Closing the election.");
 
 		// TODO: close the election
-		crash("TODO: implement closing an election");
+		election.closeElection();
 	}
 	
 	// Called when R key is pressed from main menu.
