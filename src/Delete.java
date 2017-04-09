@@ -14,14 +14,18 @@ public class Delete {
         }
 
         PollingPlace belleVue = new PollingPlace("belleVue");
+//        PollingPlace bothell = new PollingPlace("bothell");
         try {
-            System.out.println(belleVue.readVotes());
+           belleVue.readVotes();
+//           bothell.readVotes();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         belleVue.processVotes();
+//        bothell.processVotes();
 //        System.out.println(belleVue.getPriorityVotes());
         election.addDataFromPolls(belleVue.getName(),belleVue.getPriorityVotes());
+//        election.addDataFromPolls(bothell.getName(),bothell.getPriorityVotes());
 
         election.processVotesAndAssignToCandidates();
         System.out.println(election.getVotes());

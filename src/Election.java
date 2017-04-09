@@ -135,28 +135,16 @@ public class Election {
             candidateVotes = (List<Map<Candidate,Integer>>)votesFromPollIterator.next();
             //gets the ith preference votes.
             candidateVotesMap=candidateVotes.get(i);
-            Iterator ithIterator = candidateVotesMap.keySet().iterator();
-            //As long as there are candidates in the candidateVotesMap, add the candidate and
-            // update the votes.
-            while (ithIterator.hasNext()){
-                 Candidate iterCandidate = (Candidate) ithIterator.next();
-                   if(!iterCandidate.isEliminated()){
+            for (Candidate iterCandidate: candidateVotesMap.keySet()) {
+                if(!iterCandidate.isEliminated()){
                        //if there is a candidate already in the votes Map, then just update the votes.
                        if(votes.containsKey(iterCandidate))
                          votes.put(iterCandidate,
                                  votes.get(iterCandidate)+candidateVotesMap.get(iterCandidate));
                         else if(!votes.containsKey(iterCandidate))
                             votes.put(iterCandidate,candidateVotesMap.get(iterCandidate));
-                   }
+                }
             }
         }
-
-
-
-
-
-
-
     }
-
 }

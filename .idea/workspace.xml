@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53ef6229-3e26-402a-a3f7-ff785bd5a834" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Arguments.java" afterPath="$PROJECT_DIR$/src/Arguments.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Delete.java" afterPath="$PROJECT_DIR$/src/Delete.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Election.java" afterPath="$PROJECT_DIR$/src/Election.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ElectionTextUI.java" afterPath="$PROJECT_DIR$/src/ElectionTextUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RegisteredCandidate.java" afterPath="$PROJECT_DIR$/src/RegisteredCandidate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WriteInCandidate.java" afterPath="$PROJECT_DIR$/src/WriteInCandidate.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Election.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Election.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Election.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="749">
-              <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+            <state relative-caret-position="808">
+              <caret line="139" column="22" lean-forward="false" selection-start-line="139" selection-start-column="22" selection-end-line="139" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,7 +54,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ballots-bellevue.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ballots-bellevue.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ballots-bellevue.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="318">
@@ -81,8 +77,18 @@
       <file leaf-file-name="Delete.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Delete.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="967">
-              <caret line="22" column="58" lean-forward="true" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+            <state relative-caret-position="1020">
+              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ballots-bothell.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ballots-bothell.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="424">
+              <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -118,22 +124,6 @@
             <state relative-caret-position="622">
               <caret line="64" column="15" lean-forward="false" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vote.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vote.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3180">
-              <caret line="60" column="1" lean-forward="false" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1589#1590#0" expanded="true" />
-                <element signature="e#1623#1624#0" expanded="true" />
-                <element signature="e#1766#1767#0" expanded="true" />
-                <element signature="e#1816#1817#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -177,10 +167,10 @@
         <option value="$PROJECT_DIR$/src/PollingPlace.java" />
         <option value="$PROJECT_DIR$/src/ElectionTextUI.java" />
         <option value="$PROJECT_DIR$/src/Arguments.java" />
-        <option value="$PROJECT_DIR$/src/Election.java" />
         <option value="$PROJECT_DIR$/src/WriteInCandidate.java" />
         <option value="$PROJECT_DIR$/src/RegisteredCandidate.java" />
         <option value="$PROJECT_DIR$/src/Delete.java" />
+        <option value="$PROJECT_DIR$/src/Election.java" />
       </list>
     </option>
   </component>
@@ -736,12 +726,12 @@
       <workItem from="1491533668613" duration="6903000" />
       <workItem from="1491589357796" duration="823000" />
       <workItem from="1491631306368" duration="4033000" />
-      <workItem from="1491678340429" duration="33111000" />
+      <workItem from="1491678340429" duration="33816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46550000" />
+    <option name="totallyTimeSpent" value="47255000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="0" width="3853" height="2098" extended-state="0" />
@@ -756,7 +746,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294956" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294956" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -819,14 +809,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Election.java</url>
-          <line>127</line>
-          <properties class="Election" method="processVotesAndAssignToCandidates" />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
@@ -1158,6 +1140,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/RegisteredCandidate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Candidate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="569">
@@ -1177,30 +1167,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Arguments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="64" column="15" lean-forward="false" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RegisteredCandidate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WriteInCandidate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PollingPlace.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1205">
@@ -1208,6 +1174,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Arguments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="64" column="15" lean-forward="false" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1221,21 +1195,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Delete.java">
+    <entry file="file://$PROJECT_DIR$/ballots-bothell.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="967">
-          <caret line="22" column="58" lean-forward="true" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+        <state relative-caret-position="424">
+          <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Election.java">
+    <entry file="file://$PROJECT_DIR$/src/Delete.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="749">
-          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1020">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WriteInCandidate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1244,6 +1224,16 @@
         <state relative-caret-position="318">
           <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Election.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="808">
+          <caret line="139" column="22" lean-forward="false" selection-start-line="139" selection-start-column="22" selection-end-line="139" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
