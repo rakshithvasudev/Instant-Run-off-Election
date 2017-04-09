@@ -85,13 +85,19 @@ public final class ElectionTextUI {
 
 		if(election.isOpenStill()) {
             String pollingPlaceName = ValidInputReader.getValidString("Name of polling place:", "^[a-zA-Z0-9 ]+$");
-            PollingPlace pollingPlace = new PollingPlace(pollingPlaceName);
+            PollingPlace pollingPlace=null;
+            try {
+                pollingPlace = new PollingPlace(pollingPlaceName);
+            }catch (IllegalArgumentException e){
+                System.out.println("Name must be > 0 letters.");
+            }
+
 
 
             try {
+                pollingPlace.readVotes();
                 System.out.println("Added " + pollingPlaceName + ".");
                 addedPollingPlaces.add(pollingPlace);
-                pollingPlace.readVotes();
                 pollingPlace.processVotes();
                 // TODO: add polling place's data to election totals
                 election.addDataFromPolls(pollingPlace.getName(), pollingPlace.getPriorityVotes());
