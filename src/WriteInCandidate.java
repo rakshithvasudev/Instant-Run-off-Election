@@ -11,5 +11,4 @@ public class WriteInCandidate extends Candidate {
         setEliminated(false);
     }
 
-
 }

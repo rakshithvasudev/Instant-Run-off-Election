@@ -14,11 +14,15 @@ import java.util.List;
  * @version Spring 2017
  */
 public final class ElectionTextUI {
-    List<PollingPlace> addedPollingPlaces;
+    static List<PollingPlace> addedPollingPlaces;
 	Election election;
+
+
+
 	/**
 	 * Constructs a new text user interface for managing a election.
 	 */
+
 	public ElectionTextUI() {
 		System.out.println("Election Vote Counter");
 
@@ -113,7 +117,16 @@ public final class ElectionTextUI {
             }
         }
 	}
-	
+
+	/**
+	 * Retrives all the added pollingPlaces
+	 * @return Added pollingPlaces
+	 */
+	 public static List<PollingPlace> getAddedPollingPlaces() {
+		return addedPollingPlaces;
+	}
+
+
 	// Called when C key is pressed from main menu.
 	// Closes the election so that no more voting can take place.
 	private void closeElection() {

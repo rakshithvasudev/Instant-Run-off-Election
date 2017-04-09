@@ -115,7 +115,7 @@ public class Election {
      */
     public void processVotesAndAssignToCandidates(){
         //for (int i=0;i<candidates.size();i++)
-            processVotesAndAssignToCandidates(1);
+            processVotesAndAssignToCandidates(0);
     }
 
     /**
@@ -145,8 +145,31 @@ public class Election {
                             votes.put(iterCandidate,candidateVotesMap.get(iterCandidate));
                 }
                 if(iterCandidate.isEliminated()){
-                    distributeVotes();
+                    distributeVotes(iterCandidate,i);
                     votes.remove(iterCandidate);
+                }
+            }
+        }
+    }
+
+    /**
+     * Get all vote objects from the added poll Places and check.
+     * @param iterCandidate
+     * @param i
+     */
+    private void distributeVotes(Candidate iterCandidate, int i) {
+        String nextCandidateName;
+        List<PollingPlace> addedPlaces = ElectionTextUI.getAddedPollingPlaces();
+        Map<Candidate,Integer> candidateVotes = new LinkedHashMap<>(votes);
+        for (PollingPlace currentPollingPlace: addedPlaces ) {
+            for (Vote currentVote: currentPollingPlace.getVotes()){
+                if(iterCandidate.getName().equals(currentVote.getPreferences().get(i))){
+                    //fix any indexOutOfBounds exception that might occur.
+                    if(i+1>currentVote.getPreferences().size())
+                        i=i-1;
+                    nextCandidateName=currentVote.getPreferences().get(i+1);
+
+
                 }
             }
         }
