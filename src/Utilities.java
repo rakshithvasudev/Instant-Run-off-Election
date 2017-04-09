@@ -4,9 +4,9 @@
 public class Utilities {
 
     /**
-     * Checks if a candidate is WriteIn
+     * Checks if a candidate is WriteIn.
      * @param candidate
-     * @return
+     * @return true if the candidate is a write-In.
      */
     public static boolean isWriteInCandidate(Candidate candidate){
        if(candidate.getParty()==Party.NOPARTY)

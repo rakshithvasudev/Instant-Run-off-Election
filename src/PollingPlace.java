@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Rakshith on 4/8/2017.
@@ -9,12 +8,14 @@ import java.util.List;
 public class PollingPlace {
     private String name;
     private List<Vote> votes;
+    private Map<Candidate,Integer> processedVotesCount;
 
     public PollingPlace(String name) {
         if(name.length()<=0)
             throw new IllegalArgumentException("Enter a proper polling place");
         this.name = name;
         votes=new ArrayList<>();
+        processedVotesCount=new LinkedHashMap<>();
     }
 
     /**
@@ -42,6 +43,43 @@ public class PollingPlace {
     }
 
     /**
+     * Process the votes by checking the first to n preferences.
+     */
+    public void processVotes(){
+//        for (int i=0;i<Election.getElectionInstance().getCandidates().size();i++)
+//           processPreferenceVotes(i);
+               processPreferenceVotes(0);
+    }
+
+    /**
+     * If i=0, it'd process first preference votes.
+     * If i=1, it'd process second preference votes and so on until
+     * all the candidates are over.
+     * Uses the Iterator Pattern to iterate through the votes.
+     * The put method put will replace the value of an existing
+     * key and will create it if doesn't exist.
+     * @param i the value of the preferences in the votes.
+     */
+    private void processPreferenceVotes(int i) {
+        int voteCounter=0;
+        List<Integer> votesForCandidates = new ArrayList<>();
+        Iterator iterator = Election.getElectionInstance().getCandidates().values().iterator();
+        while (iterator.hasNext()) {
+            Candidate nextCandidate = (Candidate)iterator.next();
+            for (Vote currentVote : votes)
+                if (currentVote.getPreferences().get(i).equals(nextCandidate.getName())) {
+                    voteCounter++;
+                    System.out.println("candidate: "+ nextCandidate+ "Votes: "+voteCounter);
+
+            }
+            votesForCandidates.add(i,voteCounter);
+            voteCounter=0;
+            processedVotesCount.put(nextCandidate,votesForCandidates.get(i));
+        }
+    }
+
+
+    /**
      * Adds a new Vote from the list of preferences.
      * @param preferences array of preferred candidates
      *                    from highest to lowest preferred.
@@ -57,5 +95,14 @@ public class PollingPlace {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Name :" + name + " VotesCount :" + votes.size();
+    }
+
+    public Map<Candidate, Integer> getProcessedVotesCount() {
+        return processedVotesCount;
     }
 }

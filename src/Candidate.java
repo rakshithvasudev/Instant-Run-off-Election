@@ -62,7 +62,8 @@ public abstract class Candidate implements Cloneable{
 
     @Override
     public String toString() {
-        return "Candidate name is: "+ name + " who is "+
-                (isEliminated?" Eliminated. ":" Not Eliminated.");
+//        return "Candidate name is: "+ name + " who is "+
+//                (isEliminated?" Eliminated. ":" Not Eliminated.");
+    return name;
     }
 }

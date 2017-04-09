@@ -7,7 +7,7 @@ public class WriteInCandidate extends Candidate {
 
     public WriteInCandidate(String name) {
         setName(name);
-        setParty(Party.valueOf("NOPARTY"));
+        setParty(Party.NOPARTY);
     }
 
 

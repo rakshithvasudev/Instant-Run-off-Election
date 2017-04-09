@@ -42,10 +42,18 @@ public class Vote {
 
     }
 
+    /**
+     * returns the order of preferences of the vote.
+     * @return List of preferences.
+     */
     public List<String> getPreferences() {
         return preferences;
     }
 
+    /**
+     * Prints the vote object.
+     * @return String Version of the preferences.
+     */
     @Override
     public String toString() {
         return getPreferences().toString();
