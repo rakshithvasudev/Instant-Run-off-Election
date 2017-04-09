@@ -2,6 +2,8 @@
 // Instructor-provided code.
 // You SHOULD modify this file to make it interface with your own classes.
 
+import java.io.FileNotFoundException;
+
 /**
  * This class represents the text user interface (UI) for the election
  * program, allowing the user to view and manage the election and its objects.
@@ -77,14 +79,24 @@ public final class ElectionTextUI {
 		}
 
 		String pollingPlaceName = ValidInputReader.getValidString("Name of polling place:", "^[a-zA-Z0-9 ]+$");
-		
+		PollingPlace pollingPlace = new PollingPlace(pollingPlaceName);
+
+        try {
+            pollingPlace.readVotes();
+            pollingPlace.processVotes();
+        } catch (FileNotFoundException e) {
+            // when the polling place is not found,
+            System.out.println("No such polling place was found.");
+        }
+
+
+
 		System.out.println("Added " + pollingPlaceName + ".");
 		// TODO: add polling place's data to election totals
+         election.addDataFromPolls(pollingPlace.getName(),pollingPlace.getPriorityVotes());
 
-		// when the polling place is not found,
-		System.out.println("No such polling place was found.");
 
-		crash("TODO: implement adding a polling place");
+
 	}
 	
 	// Called when C key is pressed from main menu.
@@ -100,11 +112,13 @@ public final class ElectionTextUI {
 	// Shows the current results of the election.
 	private void results() {
 		// when the election is not closed,
-		System.out.println("The election is still open for votes.");
-		System.out.println("You must close the election before viewing results.");
-		
+        if(election.isOpenStill()) {
+            System.out.println("The election is still open for votes.");
+            System.out.println("You must close the election before viewing results.");
+        }
 		// when the election is closed,
-		System.out.println("Current election results for all polling places.");
+		if(!election.isOpenStill()){
+        System.out.println("Current election results for all polling places.");
 
 		// TODO: show the current results
 		System.out.println("NAME                          PARTY   VOTES     %");
@@ -116,7 +130,8 @@ public final class ElectionTextUI {
 //					candidate's vote percentage);
 
 	
-		crash("TODO: implement results");
+
+	    }
 	}
 	
 	// Called when R key is pressed from main menu.

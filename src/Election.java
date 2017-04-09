@@ -1,7 +1,9 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
-import java.util.Scanner;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 
 /**
  * Created by Rakshith on 4/7/2017.
@@ -14,12 +16,14 @@ public class Election {
     private Map<String,Candidate> votes;
     private boolean isOpen;
     private volatile static Election electionInstance;
-    private PollingPlace pollingPlace;
+    private Map<String,List<Map<Candidate,Integer>>> votesFromPollingPlaces;
+
 
     private Election() {
         isOpen=true;
         candidates = new LinkedHashMap<>();
         votes = new LinkedHashMap<>();
+        votesFromPollingPlaces= new LinkedHashMap<>();
     }
 
     /**
@@ -92,9 +96,19 @@ public class Election {
      * @param candidateName name of the candidate to be added.
      * @param partyName name of party added.
      */
-    public  void addCandidate(String candidateName, String partyName){
+    public void addCandidate(String candidateName, String partyName){
         Candidate candidate = CandidateFactory.createCandidate(candidateName,partyName);
         candidates.put(candidate.getName(),candidate);
     }
+
+    /**
+     * Adds data from outside pollPlaces to the main election.
+     * @param nameOfPollPlace name of the polling Place.
+     * @param votesList preferences list of votes from the outside.
+     */
+    public void addDataFromPolls(String nameOfPollPlace, List<Map<Candidate,Integer>> votesList){
+        votesFromPollingPlaces.put(nameOfPollPlace,votesList);
+    }
+
 
 }

@@ -11,8 +11,7 @@ public class PollingPlace {
     private List<Map<Candidate,Integer>> priorityVotes;
 
     public PollingPlace(String name) {
-        if(name.length()<=0)
-            throw new IllegalArgumentException("Enter a proper polling place");
+        Arguments.ensureNotNullOrEmpty(name);
         this.name = name;
         votes=new ArrayList<>();
         priorityVotes =new ArrayList<>();
@@ -23,7 +22,7 @@ public class PollingPlace {
      * creates a new Vote by calling addVote method.
      * @return true when successfully read.
      */
-    public  boolean readVotes(){
+    public  boolean readVotes() throws FileNotFoundException {
         //Get the correct file name from the argument passed.
         String actualFileName = "ballots-"+name.toLowerCase()+".txt";
 
@@ -37,9 +36,9 @@ public class PollingPlace {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            System.out.println("Sorry! No such File found.");
+            throw new FileNotFoundException("Couldn't find that file");
         }
-        return false;
+
     }
 
     /**
@@ -90,9 +89,12 @@ public class PollingPlace {
      *                    from highest to lowest preferred.
      */
     public void addVote(String[] preferences) {
-        votes.add(Vote.getInstance(preferences));
+        votes.add(new Vote(preferences));
     }
 
+    /**
+     * Displays all the votes in the current polling Place.
+     */
     public void displayVotes(){
         for (Vote currentVote: votes)
             System.out.println(currentVote);
@@ -109,5 +111,9 @@ public class PollingPlace {
 
     public List<Map<Candidate, Integer>> getPriorityVotes() {
         return priorityVotes;
+    }
+
+    public List<Vote> getVotes() {
+        return votes;
     }
 }

@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+
 /**
  * Created by Rakshith on 4/6/2017.
  */
@@ -8,7 +10,11 @@ public class Delete {
         election.readCandidates();
 
         PollingPlace belleVue = new PollingPlace("belleVue");
-        System.out.println(belleVue.readVotes());
+        try {
+            System.out.println(belleVue.readVotes());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         belleVue.processVotes();
         System.out.println(belleVue.getPriorityVotes());
 
