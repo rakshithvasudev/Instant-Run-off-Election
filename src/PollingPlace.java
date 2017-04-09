@@ -8,14 +8,14 @@ import java.util.*;
 public class PollingPlace {
     private String name;
     private List<Vote> votes;
-    private List<Map<Candidate,Integer>> processedPreferenceResultsList;
+    private List<Map<Candidate,Integer>> priorityVotes;
 
     public PollingPlace(String name) {
         if(name.length()<=0)
             throw new IllegalArgumentException("Enter a proper polling place");
         this.name = name;
         votes=new ArrayList<>();
-        processedPreferenceResultsList=new ArrayList<>();
+        priorityVotes =new ArrayList<>();
     }
 
     /**
@@ -44,11 +44,13 @@ public class PollingPlace {
 
     /**
      * Process the votes by checking the first to n preferences.
+     * Adds all the processed n preference elements in the ArrayList
+     * referred to as priorityVotes that contains  a list of
+     * Maps of {Candidate->Votes} pairs.
      */
     public void processVotes(){
      for (int i=0;i<Election.getElectionInstance().getCandidates().size();i++)
           processPreferenceVotes(i);
-
     }
 
     /**
@@ -67,14 +69,12 @@ public class PollingPlace {
         while (iterator.hasNext()) {
             Candidate nextCandidate = (Candidate)iterator.next();
             for (Vote currentVote : votes)
-                if (currentVote.getPreferences().get(i).equals(nextCandidate.getName())) {
+                if (currentVote.getPreferences().get(i).equals(nextCandidate.getName()))
                     voteCounter++;
-                }
-
             processedVotesCount.put(nextCandidate,voteCounter);
             voteCounter=0;
         }
-        processedPreferenceResultsList.add(processedVotesCount);
+        priorityVotes.add(processedVotesCount);
     }
 
 
@@ -101,7 +101,7 @@ public class PollingPlace {
         return "Name :" + name + " VotesCount :" + votes.size();
     }
 
-    public List<Map<Candidate, Integer>> getProcessedPreferenceResultsList() {
-        return processedPreferenceResultsList;
+    public List<Map<Candidate, Integer>> getPriorityVotes() {
+        return priorityVotes;
     }
 }

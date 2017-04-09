@@ -10,7 +10,7 @@ public class Delete {
         PollingPlace belleVue = new PollingPlace("belleVue");
         System.out.println(belleVue.readVotes());
         belleVue.processVotes();
-        System.out.println(belleVue.getProcessedPreferenceResultsList());
+        System.out.println(belleVue.getPriorityVotes());
 
 
 
