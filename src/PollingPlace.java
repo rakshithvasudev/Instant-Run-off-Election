@@ -8,14 +8,14 @@ import java.util.*;
 public class PollingPlace {
     private String name;
     private List<Vote> votes;
-    private Map<Candidate,Integer> processedVotesCount;
+    private List<Map<Candidate,Integer>> processedPreferenceResultsList;
 
     public PollingPlace(String name) {
         if(name.length()<=0)
             throw new IllegalArgumentException("Enter a proper polling place");
         this.name = name;
         votes=new ArrayList<>();
-        processedVotesCount=new LinkedHashMap<>();
+        processedPreferenceResultsList=new ArrayList<>();
     }
 
     /**
@@ -46,9 +46,9 @@ public class PollingPlace {
      * Process the votes by checking the first to n preferences.
      */
     public void processVotes(){
-//        for (int i=0;i<Election.getElectionInstance().getCandidates().size();i++)
-//           processPreferenceVotes(i);
-               processPreferenceVotes(0);
+     for (int i=0;i<Election.getElectionInstance().getCandidates().size();i++)
+          processPreferenceVotes(i);
+
     }
 
     /**
@@ -61,21 +61,20 @@ public class PollingPlace {
      * @param i the value of the preferences in the votes.
      */
     private void processPreferenceVotes(int i) {
+        Map<Candidate,Integer> processedVotesCount = new LinkedHashMap<>() ;
         int voteCounter=0;
-        List<Integer> votesForCandidates = new ArrayList<>();
         Iterator iterator = Election.getElectionInstance().getCandidates().values().iterator();
         while (iterator.hasNext()) {
             Candidate nextCandidate = (Candidate)iterator.next();
             for (Vote currentVote : votes)
                 if (currentVote.getPreferences().get(i).equals(nextCandidate.getName())) {
                     voteCounter++;
-                    System.out.println("candidate: "+ nextCandidate+ "Votes: "+voteCounter);
+                }
 
-            }
-            votesForCandidates.add(i,voteCounter);
+            processedVotesCount.put(nextCandidate,voteCounter);
             voteCounter=0;
-            processedVotesCount.put(nextCandidate,votesForCandidates.get(i));
         }
+        processedPreferenceResultsList.add(processedVotesCount);
     }
 
 
@@ -102,7 +101,7 @@ public class PollingPlace {
         return "Name :" + name + " VotesCount :" + votes.size();
     }
 
-    public Map<Candidate, Integer> getProcessedVotesCount() {
-        return processedVotesCount;
+    public List<Map<Candidate, Integer>> getProcessedPreferenceResultsList() {
+        return processedPreferenceResultsList;
     }
 }

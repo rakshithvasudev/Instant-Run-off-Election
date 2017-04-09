@@ -7,11 +7,11 @@ public class Delete {
         Election election = Election.getElectionInstance();
         election.readCandidates();
 
-        PollingPlace pollingPlace = new PollingPlace("belleVue");
-        System.out.println(pollingPlace.readVotes());
-        pollingPlace.displayVotes();
-        pollingPlace.processVotes();
-        System.out.println(pollingPlace.getProcessedVotesCount());
+        PollingPlace belleVue = new PollingPlace("belleVue");
+        System.out.println(belleVue.readVotes());
+        belleVue.processVotes();
+        System.out.println(belleVue.getProcessedPreferenceResultsList());
+
 
 
     }
