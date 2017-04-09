@@ -8,5 +8,6 @@ public class RegisteredCandidate extends Candidate {
     public RegisteredCandidate(String name,Party party) {
         setName(name);
         setParty(party);
+        setEliminated(false);
     }
 }

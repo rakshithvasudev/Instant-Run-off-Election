@@ -7,7 +7,11 @@ public class Delete {
 
     public static void main(String[] args) {
         Election election = Election.getElectionInstance();
-        election.readCandidates();
+        try {
+            election.readCandidates();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         PollingPlace belleVue = new PollingPlace("belleVue");
         try {
@@ -16,8 +20,11 @@ public class Delete {
             e.printStackTrace();
         }
         belleVue.processVotes();
-        System.out.println(belleVue.getPriorityVotes());
+//        System.out.println(belleVue.getPriorityVotes());
+        election.addDataFromPolls(belleVue.getName(),belleVue.getPriorityVotes());
 
+        election.processVotesAndAssignToCandidates();
+        System.out.println(election.getVotes());
 
 
     }

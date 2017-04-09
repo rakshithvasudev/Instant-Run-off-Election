@@ -8,6 +8,7 @@ public class WriteInCandidate extends Candidate {
     public WriteInCandidate(String name) {
         setName(name);
         setParty(Party.NOPARTY);
+        setEliminated(false);
     }
 
 

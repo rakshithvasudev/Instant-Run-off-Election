@@ -62,7 +62,7 @@ public final class Arguments {
 	 * @throws IllegalArgumentException if n > max
 	 */
 	public static void ensureAtMost(int n, int max) {
-		if (n < max) {
+		if (n > max) {
 			throw new IllegalArgumentException("must be at most " + max + ": " + n);
 		}
 	}

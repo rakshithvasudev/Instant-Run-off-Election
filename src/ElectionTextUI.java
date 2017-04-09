@@ -25,7 +25,13 @@ public final class ElectionTextUI {
         // TODO: initialization code can go here
         election =	election.getElectionInstance();
         addedPollingPlaces = new ArrayList<>();
-	}
+        try {
+            election.readCandidates();
+        } catch (FileNotFoundException e) {
+            System.out.println("There is no Candidates.txt file.");
+        }
+
+    }
 	
 	/**
 	 * Displays the main menu of choices and prompts the user to enter a choice.

@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -74,7 +72,7 @@ public class Election {
      * pattern to create a new candidate.
      * @return true when successfully read. False otherwise.
      */
-    public boolean readCandidates(){
+    public boolean readCandidates() throws FileNotFoundException {
         try {
             Scanner scanner = new Scanner(new File("candidates.txt")).useDelimiter("\n");
             while (scanner.hasNext()){
@@ -83,9 +81,9 @@ public class Election {
             }
             return true;
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            throw new FileNotFoundException("No Candidates file.");
         }
-        return false;
+
     }
 
     /**
@@ -110,5 +108,55 @@ public class Election {
         votesFromPollingPlaces.put(nameOfPollPlace,votesList);
     }
 
+    /**
+     * As long as there are candidates, update votes
+     * from different pollingPlaces to Candidate.
+     * Based on the run off, the parameter would be assigned.
+     */
+    public void processVotesAndAssignToCandidates(){
+        //for (int i=0;i<candidates.size();i++)
+            processVotesAndAssignToCandidates(0);
+    }
+
+    /**
+     * Go through every single pollPlace and add the
+     * ith preference votes to the votes<Candidate, Integer> Map.
+     * if i=0, gets the first preference votes.
+     * if i=1, gets the second preference and so fourth.
+     * @throws IllegalArgumentException if i> size of votesFromPollingPlaces.
+     */
+    public void processVotesAndAssignToCandidates(int i){
+        Arguments.ensureAtMost(i,votesFromPollingPlaces.size());
+        Iterator votesFromPollIterator = votesFromPollingPlaces.values().iterator();
+        Map<Candidate,Integer> candidateVotesMap;
+        List<Map<Candidate,Integer>> candidateVotes;
+
+        while (votesFromPollIterator.hasNext()){
+            candidateVotes = (List<Map<Candidate,Integer>>)votesFromPollIterator.next();
+            //gets the ith preference votes.
+            candidateVotesMap=candidateVotes.get(i);
+            Iterator ithIterator = candidateVotesMap.keySet().iterator();
+            //As long as there are candidates in the candidateVotesMap, add the candidate and
+            // update the votes.
+            while (ithIterator.hasNext()){
+                 Candidate iterCandidate = (Candidate) ithIterator.next();
+                   if(!iterCandidate.isEliminated()){
+                       //if there is a candidate already in the votes Map, then just update the votes.
+                       if(votes.containsKey(iterCandidate))
+                         votes.put(iterCandidate,
+                                 votes.get(iterCandidate)+candidateVotesMap.get(iterCandidate));
+                        else if(!votes.containsKey(iterCandidate))
+                            votes.put(iterCandidate,candidateVotesMap.get(iterCandidate));
+                   }
+            }
+        }
+
+
+
+
+
+
+
+    }
 
 }
