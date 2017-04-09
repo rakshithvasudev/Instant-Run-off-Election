@@ -115,7 +115,7 @@ public class Election {
      */
     public void processVotesAndAssignToCandidates(){
         //for (int i=0;i<candidates.size();i++)
-            processVotesAndAssignToCandidates(0);
+            processVotesAndAssignToCandidates(1);
     }
 
     /**
@@ -130,7 +130,7 @@ public class Election {
         Iterator votesFromPollIterator = votesFromPollingPlaces.values().iterator();
         Map<Candidate,Integer> candidateVotesMap;
         List<Map<Candidate,Integer>> candidateVotes;
-
+        // As long as there are elements in the votesFromPollingPlaces, check and assign values.
         while (votesFromPollIterator.hasNext()){
             candidateVotes = (List<Map<Candidate,Integer>>)votesFromPollIterator.next();
             //gets the ith preference votes.
@@ -143,6 +143,10 @@ public class Election {
                                  votes.get(iterCandidate)+candidateVotesMap.get(iterCandidate));
                         else if(!votes.containsKey(iterCandidate))
                             votes.put(iterCandidate,candidateVotesMap.get(iterCandidate));
+                }
+                if(iterCandidate.isEliminated()){
+                    distributeVotes();
+                    votes.remove(iterCandidate);
                 }
             }
         }
