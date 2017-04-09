@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by Rakshith on 4/8/2017.
  */
-public class PollingPlace {
+public final class PollingPlace {
     private String name;
     private List<Vote> votes;
     private List<Map<Candidate,Integer>> priorityVotes;
@@ -17,14 +17,19 @@ public class PollingPlace {
         priorityVotes =new ArrayList<>();
     }
 
+
+
     /**
      * Reads the appropriate votes from the ballot and
      * creates a new Vote by calling addVote method.
+     * sets the name of the pollingPlace to the ac
      * @return true when successfully read.
      */
     public  boolean readVotes() throws FileNotFoundException {
         //Get the correct file name from the argument passed.
         String actualFileName = "ballots-"+name.toLowerCase()+".txt";
+
+
 
         try {
             Scanner scanner = new Scanner(new File(actualFileName)).useDelimiter("\n");
@@ -33,12 +38,9 @@ public class PollingPlace {
                 addVote(preferences);
             }
             return true;
-
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
             throw new FileNotFoundException("Couldn't find that file");
         }
-
     }
 
     /**
@@ -115,5 +117,28 @@ public class PollingPlace {
 
     public List<Vote> getVotes() {
         return votes;
+    }
+
+    /**
+     * Just check for name equality
+     * @param obj object to be compared.
+     * @return true if the names match
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if(obj!=null && getClass()== obj.getClass()) {
+            PollingPlace PollingObj  =(PollingPlace)obj;
+            return name.equals(PollingObj.name);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int a = 19;
+        a = name.hashCode()*a;
+        a = votes.hashCode()*a;
+        a = priorityVotes.hashCode()*votes.hashCode()*17*a;
+        return a;
     }
 }

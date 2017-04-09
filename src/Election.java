@@ -13,7 +13,7 @@ import java.util.Map;
 public class Election {
 
     private Map<String, Candidate> candidates;
-    private Map<String,Candidate> votes;
+    private Map<Candidate,Integer> votes;
     private boolean isOpen;
     private volatile static Election electionInstance;
     private Map<String,List<Map<Candidate,Integer>>> votesFromPollingPlaces;
@@ -51,7 +51,7 @@ public class Election {
         return candidates;
     }
 
-    public Map<String, Candidate> getVotes() {
+    public Map<Candidate, Integer> getVotes() {
         return votes;
     }
 

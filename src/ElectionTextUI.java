@@ -3,6 +3,8 @@
 // You SHOULD modify this file to make it interface with your own classes.
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class represents the text user interface (UI) for the election
@@ -12,6 +14,7 @@ import java.io.FileNotFoundException;
  * @version Spring 2017
  */
 public final class ElectionTextUI {
+    List<PollingPlace> addedPollingPlaces;
 	Election election;
 	/**
 	 * Constructs a new text user interface for managing a election.
@@ -19,8 +22,9 @@ public final class ElectionTextUI {
 	public ElectionTextUI() {
 		System.out.println("Election Vote Counter");
 
-		// TODO: initialization code can go here
-		election =	election.getElectionInstance();
+        // TODO: initialization code can go here
+        election =	election.getElectionInstance();
+        addedPollingPlaces = new ArrayList<>();
 	}
 	
 	/**
@@ -72,31 +76,30 @@ public final class ElectionTextUI {
 	// Called when P key is pressed from main menu.
 	// Reads data from a new polling place.
 	private void addPollingPlace() {
+
 		// when the election is not open,
 		if(!election.isOpenStill()){
 			System.out.println("The election is closed.");
 			System.out.println("No more polling places may be added.");
 		}
 
-		String pollingPlaceName = ValidInputReader.getValidString("Name of polling place:", "^[a-zA-Z0-9 ]+$");
-		PollingPlace pollingPlace = new PollingPlace(pollingPlaceName);
+		if(election.isOpenStill()) {
+            String pollingPlaceName = ValidInputReader.getValidString("Name of polling place:", "^[a-zA-Z0-9 ]+$");
+            PollingPlace pollingPlace = new PollingPlace(pollingPlaceName);
 
-        try {
-            pollingPlace.readVotes();
-            pollingPlace.processVotes();
-        } catch (FileNotFoundException e) {
-            // when the polling place is not found,
-            System.out.println("No such polling place was found.");
+
+            try {
+                System.out.println("Added " + pollingPlaceName + ".");
+                addedPollingPlaces.add(pollingPlace);
+                pollingPlace.readVotes();
+                pollingPlace.processVotes();
+                // TODO: add polling place's data to election totals
+                election.addDataFromPolls(pollingPlace.getName(), pollingPlace.getPriorityVotes());
+            } catch (FileNotFoundException e) {
+                // when the polling place is not found,
+                System.out.println("No such polling place was found.");
+            }
         }
-
-
-
-		System.out.println("Added " + pollingPlaceName + ".");
-		// TODO: add polling place's data to election totals
-         election.addDataFromPolls(pollingPlace.getName(),pollingPlace.getPriorityVotes());
-
-
-
 	}
 	
 	// Called when C key is pressed from main menu.
@@ -129,28 +132,41 @@ public final class ElectionTextUI {
 //					candidate's votes,
 //					candidate's vote percentage);
 
-	
 
-	    }
+
+
+
+
+        }
 	}
 	
 	// Called when R key is pressed from main menu.
 	// Shows the current results of the election.
 	private void perPollingPlaceResults() {
 		// when the election is not closed,
-		System.out.println("The election is still open for votes.");
-		System.out.println("You must close the election before viewing results.");
-		
-		String pollingPlaceName = ValidInputReader.getValidString("Name of polling place:", "^[a-zA-Z0-9 ]+$");
-		
-		// when the polling place exists,
-		System.out.println("Current election results for " + pollingPlaceName + ".");
-		// TODO: show the current results for this polling place
+		if(election.isOpenStill()) {
+            System.out.println("The election is still open for votes.");
+            System.out.println("You must close the election before viewing results.");
+        }
 
-		// when the polling place doesn't exist, 
-		System.out.println("No such polling place was found.");
-		crash("TODO: implement per-polling place results");
-	}
+        String pollingPlaceName = ValidInputReader.getValidString("Name of polling place:", "^[a-zA-Z0-9 ]+$");
+        boolean pollingPlaceFound = false;
+
+        // when the polling place exists,
+        for (PollingPlace currentPlace: addedPollingPlaces){
+            if(currentPlace.getName().equals(pollingPlaceName)){
+                System.out.println("Current election results for " + pollingPlaceName + ".");
+                // TODO: show the current results for this polling place
+                pollingPlaceFound=true;
+                currentPlace.displayVotes();
+
+            }
+        }
+
+        // when the polling place doesn't exist,
+		if(!pollingPlaceFound)
+            System.out.println("No such polling place was found.");
+    }
 
 	// Called when E key is pressed from main menu.
 	// Removes the candidate who has the fewest votes, and reallocates his/her
