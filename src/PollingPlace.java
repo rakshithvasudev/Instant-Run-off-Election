@@ -54,6 +54,12 @@ public class PollingPlace {
     }
 
     /**
+     * Processing here means, to collect votes that match to
+     * the candidate. A first preference vote is that vote
+     * which the voters would have selected as their preferred candidate.
+     * EX: If this were the votes [Ron Paul,Barack Obama,John McCain,Ralph Nader],
+     * [John McCain,Ron Paul,Barack Obama,Ralph Nader] then the first preference
+     * vote would be Ron Paul, John McCain.
      * If i=0, it'd process first preference votes.
      * If i=1, it'd process second preference votes and so on until
      * all the candidates are over.
@@ -84,7 +90,7 @@ public class PollingPlace {
      *                    from highest to lowest preferred.
      */
     public void addVote(String[] preferences) {
-        votes.add(new Vote(preferences));
+        votes.add(Vote.getInstance(preferences));
     }
 
     public void displayVotes(){

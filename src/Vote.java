@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Rakshith on 4/6/2017.
@@ -16,10 +14,13 @@ import java.util.List;
  * then it's a valid vote. Not valid if
  * the preferences is less than candidates count.
  *
+ * This class Implements Flyweight Pattern.
+ *
  */
 public class Vote {
 
-    private List<String> preferences;
+    private static Map<String[],Vote> instances = new HashMap<>();
+    private static final List<String> preferences = new ArrayList<>();
 
     /**
      * Ignore the write-In Candidates for preferences match.
@@ -31,16 +32,29 @@ public class Vote {
      * @throws IllegalVoteCastException when preferences count
      *  is lesser than than the registered candidates count.
      */
-    public Vote(String... args) {
+    private Vote(String... args) {
         if(args.length<Election.getElectionInstance().getCandidates().size()){
             throw new IllegalVoteCastException("Preferences can't be " +
-                    "less than registered candidates count");
+                    "less than registered candidates count.");
         }
-
-        preferences = new ArrayList<>();
         preferences.addAll(Arrays.asList(args));
-
     }
+
+    /**
+     *This Method returns an instance of the Already present Vote. Otherwise,
+     * it returns newly created vote object from the arguments passed.
+     *
+     * @param args String of Arrays passed as input for the vote to be created.
+     * @return a cached copy if the exact vote preference is already present.
+     */
+    public static Vote getInstance(String... args) {
+        if(!instances.containsKey(args))
+            instances.put(args,new Vote(args));
+        return instances.get(args);
+    }
+
+
+
 
     /**
      * returns the order of preferences of the vote.
