@@ -18,8 +18,8 @@ public class Utilities {
     /**
      * Computes the edit distance.
      * Code Taken from https://rosettacode.org/wiki/Levenshtein_distance#Java
-     * @param a string that has to be compared.
-     * @param b string that has to be compared to.
+     * @param a string that has to be compared to.
+     * @param b string that has to be compared.
      * @return
      */
     public static int distance(String a, String b) {
@@ -58,6 +58,23 @@ public class Utilities {
             }
         }
         return new WriteInCandidate(currentCandidateName);
+    }
+
+
+    /**
+     * Everything is similar to LdistanceToCandidates(String currentCandidateName).
+     * Except, instead of returning a Candidate, this returns the corresponding
+     * Name that matches.
+     * @param currentCandidateName
+     * @return
+     */
+    public static String LdistanceToCandidatesName(String currentCandidateName){
+        for (Candidate currentCandidate: election.getCandidates().values()) {
+            if(distance(currentCandidateName,currentCandidate.getName())<=3){
+                return currentCandidate.getName();
+            }
+        }
+        return currentCandidateName;
     }
 
 

@@ -158,7 +158,8 @@ public class Election {
      * @param i
      */
     private void distributeVotes(Candidate iterCandidate, int i) {
-        String nextCandidateName;
+        Candidate nextCandidate;
+
         List<PollingPlace> addedPlaces = ElectionTextUI.getAddedPollingPlaces();
         Map<Candidate,Integer> candidateVotes = new LinkedHashMap<>(votes);
         for (PollingPlace currentPollingPlace: addedPlaces ) {
@@ -167,7 +168,7 @@ public class Election {
                     //fix any indexOutOfBounds exception that might occur.
                     if(i+1>currentVote.getPreferences().size())
                         i=i-1;
-                    nextCandidateName=currentVote.getPreferences().get(i+1);
+                    nextCandidate=Utilities.LdistanceToCandidates(currentVote.getPreferences().get(i+1));
 
 
                 }
