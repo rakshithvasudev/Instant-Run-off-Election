@@ -36,10 +36,9 @@ public class Delete {
 //        election.addDataFromPolls(queen.getName(),queen.getPriorityVotes());
 
 
-//        election.getCandidates().get("John McCain").setEliminated(true);
+        election.getCandidates().get("John McCain").setEliminated(true);
         election.processVotesAndAssignToCandidates();
-
-//        System.out.println(election.getVotes());
+        System.out.println(election.getVotes());
 
 
 

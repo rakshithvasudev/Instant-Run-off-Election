@@ -135,30 +135,15 @@ public class Election {
     public void processVotesAndAssignToCandidates(int i) {
         Arguments.ensureAtMost(i, votesFromPollingPlaces.size());
         Map<Candidate, Integer> candidateVotesMap;
-        int voteValue;
         //go through all the available polling places and get ith preference votes.
         for (PollingPlace currentPollingPlace : votesFromPollingPlaces.keySet()) {
+            // gets the ith vote preference of Map<Candidate, Integer>.
             candidateVotesMap = currentPollingPlace.getPriorityVotes().get(i);
-            //add the key value pairs to the votes and handle any null events.
-            for (Candidate currentCandidate:candidateVotesMap.keySet()) {
-                //if the key is already added, just update the values, otherwise add newly.
-                if (!votes.containsKey(currentCandidate))
-                    votes.put(currentCandidate,
-                            (candidateVotesMap.get(currentCandidate) == null) ? 0 :
-                                    candidateVotesMap.get(currentCandidate));
-                else if (votes.containsKey(currentCandidate)) {
-                    voteValue = (votes.get(currentCandidate) == null) ? 0 : votes.get(currentCandidate);
-                    votes.put(currentCandidate,
-                            (candidateVotesMap.get(currentCandidate) == null) ? 0 :
-                                    candidateVotesMap.get(currentCandidate) + voteValue);
-                System.out.println(currentCandidate);
-                }
-
-            System.out.println(candidateVotesMap);
-            }
-        }
+            //add the key value pairs to the votes, if the key is already added,
+            // just update the values, otherwise add newly.
+             candidateVotesMap.forEach((Candidate,Integer)->votes.merge(Candidate,Integer, java.lang.Integer::sum));
+          }
     }
-
 
     /**
      * Get all vote objects from the added poll Places and check for that
