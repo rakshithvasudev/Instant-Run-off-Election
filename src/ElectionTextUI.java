@@ -14,7 +14,7 @@ import java.util.List;
  * @version Spring 2017
  */
 public final class ElectionTextUI {
-    static List<PollingPlace> addedPollingPlaces;
+    static List<PollingPlace> addedPollingPlaces = new ArrayList<>();
 	Election election;
 
 
@@ -28,7 +28,7 @@ public final class ElectionTextUI {
 
         // TODO: initialization code can go here
         election =	election.getElectionInstance();
-        addedPollingPlaces = new ArrayList<>();
+
         try {
             election.readCandidates();
         } catch (FileNotFoundException e) {

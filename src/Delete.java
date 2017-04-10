@@ -7,32 +7,36 @@ public class Delete {
 
     public static void main(String[] args) {
         Election election = Election.getElectionInstance();
+
         try {
             election.readCandidates();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        PollingPlace belleVue = new PollingPlace("belleVue");
-        PollingPlace bothell = new PollingPlace("bothell");
-        PollingPlace queen = new PollingPlace("u district");
+//        PollingPlace belleVue = new PollingPlace("belleVue");
+//        ElectionTextUI.addedPollingPlaces.add(belleVue);
+        PollingPlace bothell = new PollingPlace("capitol hill");
+        ElectionTextUI.addedPollingPlaces.add(bothell);
+//        PollingPlace queen = new PollingPlace("u district");
+//        ElectionTextUI.addedPollingPlaces.add(queen);
         try {
-           belleVue.readVotes();
-           bothell.readVotes();
-            queen.readVotes();
+//           belleVue.readVotes();
+            bothell.readVotes();
+//            queen.readVotes();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        belleVue.processVotes();
+//        belleVue.processVotes();
         bothell.processVotes();
-        queen.processVotes();
+//        queen.processVotes();
 //        System.out.println(belleVue.getPriorityVotes());
-        election.addDataFromPolls(belleVue.getName(),belleVue.getPriorityVotes());
+//        election.addDataFromPolls(belleVue.getName(),belleVue.getPriorityVotes());
         election.addDataFromPolls(bothell.getName(),bothell.getPriorityVotes());
-        election.addDataFromPolls(queen.getName(),queen.getPriorityVotes());
+//        election.addDataFromPolls(queen.getName(),queen.getPriorityVotes());
 
 
-//        election.getCandidates().get("Barack Obama").setEliminated(true);
+        election.getCandidates().get("John McCain").setEliminated(true);
         election.processVotesAndAssignToCandidates();
 
         System.out.println(election.getVotes());

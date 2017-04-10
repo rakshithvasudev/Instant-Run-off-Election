@@ -135,6 +135,10 @@ public class Election {
             //gets the ith preference votes.
             candidateVotesMap=candidateVotes.get(i);
             for (Candidate iterCandidate: candidateVotesMap.keySet()) {
+                if(iterCandidate.isEliminated()){
+                    distributeVotes(iterCandidate,i,candidateVotesMap);
+                    votes.remove(iterCandidate);
+                }
                 if(!iterCandidate.isEliminated()){
                        //if there is a candidate already in the votes Map, then just update the votes.
                        if(votes.containsKey(iterCandidate))
@@ -142,10 +146,6 @@ public class Election {
                                  votes.get(iterCandidate)+candidateVotesMap.get(iterCandidate));
                         else if(!votes.containsKey(iterCandidate))
                             votes.put(iterCandidate,candidateVotesMap.get(iterCandidate));
-                }
-                if(iterCandidate.isEliminated()){
-                    distributeVotes(iterCandidate,i);
-                    votes.remove(iterCandidate);
                 }
             }
         }
@@ -157,7 +157,8 @@ public class Election {
      * @param iterCandidate the candidate that has to be removed votes from.
      * @param i ith run off = ith preference votes would be extracted.
      */
-    private void distributeVotes(Candidate iterCandidate, int i) {
+    private void distributeVotes(Candidate iterCandidate, int i,
+                                 Map<Candidate,Integer> candidateVotesMap) {
         Candidate nextCandidate;
 //        List<PollingPlace> addedPlacesList = new ArrayList<>(votesFromPollingPlaces.keySet())
         List<PollingPlace> addedPlaces = ElectionTextUI.getAddedPollingPlaces();
@@ -167,12 +168,16 @@ public class Election {
                     //fix any indexOutOfBounds exception that might occur.
                     if(i+1>currentVote.getPreferences().size())
                         i=i-1;
-                    //get the candidate from the name.
+                    //get the next candidate from the preferences name.
                     nextCandidate=Utilities.
                             getCandidateFromString(currentVote.getPreferences().get(i+1));
                     //add the votes for the next candidate in the preference list.
-                    votes.put(nextCandidate,
-                            votes.get(nextCandidate)+votes.get(iterCandidate));
+                  if(votes.containsKey(nextCandidate))
+                      votes.put(nextCandidate,
+                            candidateVotesMap.get(nextCandidate)+candidateVotesMap.get(iterCandidate));
+                  if(!votes.containsKey(nextCandidate))
+                      votes.put(nextCandidate,
+                              1);
                 }
             }
         }

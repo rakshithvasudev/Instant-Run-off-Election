@@ -14,7 +14,7 @@ import java.util.List;
  * Ex: if there are 5 candidates in candidates.txt
  * and the number of preferences from the voter is 5,
  * then it's a valid vote. Not valid if
- * the preferences is less than candidates count.
+ * the preferences is less than the registered candidates count.
  *
  */
 public class Vote {
@@ -32,14 +32,11 @@ public class Vote {
      *  is lesser than than the registered candidates count.
      */
     public Vote(String... args) {
-        if(args.length<Election.getElectionInstance().getCandidates().size()){
+        if(args.length<Election.getElectionInstance().getCandidates().size())
             throw new IllegalVoteCastException("Preferences can't be " +
                     "less than registered candidates count");
-        }
-
         preferences = new ArrayList<>();
         preferences.addAll(Arrays.asList(args));
-
     }
 
     /**
