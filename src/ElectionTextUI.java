@@ -17,8 +17,6 @@ public final class ElectionTextUI {
     static List<PollingPlace> addedPollingPlaces = new ArrayList<>();
 	Election election;
 
-
-
 	/**
 	 * Constructs a new text user interface for managing a election.
 	 */

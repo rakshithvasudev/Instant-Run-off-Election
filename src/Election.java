@@ -121,7 +121,8 @@ public class Election {
      */
     public void processVotesAndAssignToCandidates() {
         //for (int i=0;i<candidates.size();i++)
-        processVotesAndAssignToCandidates(0);
+        int i=0;
+        processVotesAndAssignToCandidates(i);
     }
 
     /**
@@ -141,9 +142,32 @@ public class Election {
             candidateVotesMap = currentPollingPlace.getPriorityVotes().get(i);
             //add the key value pairs to the votes, if the key is already added,
             // just update the values, otherwise add newly.
-             candidateVotesMap.forEach((Candidate,Integer)->votes.merge(Candidate,Integer, java.lang.Integer::sum));
+             candidateVotesMap.forEach((Candidate,Integer)->
+                     votes.merge(Candidate,Integer, java.lang.Integer::sum));
           }
     }
+
+    /**
+     * Removes the candidate having least votes from the election by distributing his votes
+     * to the 2nd preferences votes.
+     */
+    public void eliminateCandidate(int i){
+        int least=votes.values().iterator().next();
+        Candidate candidateToBeEliminated=null;
+        for (Integer leastVotes: votes.values())
+            if(leastVotes<least)
+                least=leastVotes;
+        for (Map.Entry<Candidate,Integer> currentMap:votes.entrySet())
+            if(currentMap.getValue()==least)
+                candidateToBeEliminated = currentMap.getKey();
+//        distributeVotes(candidateToBeEliminated,i);
+
+        System.out.println(candidateToBeEliminated);
+    }
+
+
+
+
 
     /**
      * Get all vote objects from the added poll Places and check for that
@@ -152,8 +176,7 @@ public class Election {
      * @param iterCandidate the candidate that has to be removed votes from.
      * @param i             ith run off = ith preference votes would be extracted.
      */
-    private void distributeVotes(Candidate iterCandidate, int i,
-                                 Map<Candidate, Integer> candidateVotesMap) {
+    private void distributeVotes(Candidate iterCandidate, int i) {
         Candidate nextCandidate;
 //        List<PollingPlace> addedPlacesList = new ArrayList<>(votesFromPollingPlaces.keySet())
         List<PollingPlace> addedPlaces = ElectionTextUI.getAddedPollingPlaces();
@@ -167,12 +190,7 @@ public class Election {
                     nextCandidate = Utilities.
                             getCandidateFromString(currentVote.getPreferences().get(i + 1));
                     //add the votes for the next candidate in the preference list.
-                    if (votes.containsKey(nextCandidate))
-                        votes.put(nextCandidate,
-                                candidateVotesMap.get(nextCandidate) + candidateVotesMap.get(iterCandidate));
-                    if (!votes.containsKey(nextCandidate))
-                        votes.put(nextCandidate,
-                                1);
+
                 }
             }
         }

@@ -1,7 +1,9 @@
+import java.util.Comparator;
+
 /**
  * Created by Rakshith on 4/8/2017.
  */
-public class Utilities {
+public class Utilities{
     static  Election election = Election.getElectionInstance();
 
     /**
@@ -77,6 +79,11 @@ public class Utilities {
         return currentCandidateName;
     }
 
+    /**
+     *
+     * @param candidateName name of the candidate to be checked.
+     * @return Corresponding candidate, if available. Null otherwise.
+     */
     public static Candidate getCandidateFromString(String candidateName){
         Candidate candidate = null;
         for (Candidate currentCandidate:election.getCandidates().values()) {
@@ -85,13 +92,6 @@ public class Utilities {
         }
        return candidate;
     }
-
-    public static PollingPlace getPollingPlaceFromString(String pollingPlaceName){
-        PollingPlace pollingPlace = null;
-
-        return pollingPlace;
-    }
-
 
 
 

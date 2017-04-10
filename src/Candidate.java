@@ -1,7 +1,7 @@
 /**
  * Created by Rakshith on 4/6/2017.
  */
-public abstract class Candidate implements Cloneable{
+public abstract class Candidate implements Cloneable, Comparable{
 
     private String name;
     private boolean isEliminated;
@@ -65,5 +65,21 @@ public abstract class Candidate implements Cloneable{
 //        return "Candidate name is: "+ name + " who is "+
 //                (isEliminated?" Eliminated. ":" Not Eliminated.");
     return name;
+    }
+
+
+    /**
+     * Compares by name.
+     * @param o other Object
+     * @return >1 if this candidate has an
+     * alphabetically larger name than compared name.
+     * or 0 if they're equal.
+     * or <1 if this is smaller than other.
+     * Ex: Raphal > Obama (R>O).
+     */
+    @Override
+    public int compareTo(Object o) {
+        Candidate other = (Candidate)o;
+        return this.name.compareTo(other.name);
     }
 }
