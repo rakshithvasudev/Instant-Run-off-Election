@@ -83,7 +83,6 @@ public class Election {
         } catch (FileNotFoundException e) {
             throw new FileNotFoundException("No Candidates file.");
         }
-
     }
 
     /**
@@ -153,24 +152,27 @@ public class Election {
     }
 
     /**
-     * Get all vote objects from the added poll Places and check.
-     * @param iterCandidate
-     * @param i
+     * Get all vote objects from the added poll Places and check for that
+     * candidate name.
+     * @param iterCandidate the candidate that has to be removed votes from.
+     * @param i ith run off = ith preference votes would be extracted.
      */
     private void distributeVotes(Candidate iterCandidate, int i) {
         Candidate nextCandidate;
-
+//        List<PollingPlace> addedPlacesList = new ArrayList<>(votesFromPollingPlaces.keySet())
         List<PollingPlace> addedPlaces = ElectionTextUI.getAddedPollingPlaces();
-        Map<Candidate,Integer> candidateVotes = new LinkedHashMap<>(votes);
         for (PollingPlace currentPollingPlace: addedPlaces ) {
             for (Vote currentVote: currentPollingPlace.getVotes()){
                 if(iterCandidate.getName().equals(currentVote.getPreferences().get(i))){
                     //fix any indexOutOfBounds exception that might occur.
                     if(i+1>currentVote.getPreferences().size())
                         i=i-1;
-                    nextCandidate=Utilities.LdistanceToCandidates(currentVote.getPreferences().get(i+1));
-
-
+                    //get the candidate from the name.
+                    nextCandidate=Utilities.
+                            getCandidateFromString(currentVote.getPreferences().get(i+1));
+                    //add the votes for the next candidate in the preference list.
+                    votes.put(nextCandidate,
+                            votes.get(nextCandidate)+votes.get(iterCandidate));
                 }
             }
         }

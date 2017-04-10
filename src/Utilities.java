@@ -77,6 +77,20 @@ public class Utilities {
         return currentCandidateName;
     }
 
+    public static Candidate getCandidateFromString(String candidateName){
+        Candidate candidate = null;
+        for (Candidate currentCandidate:election.getCandidates().values()) {
+            if(currentCandidate.getName().equalsIgnoreCase(candidateName))
+                candidate = currentCandidate.clone();
+        }
+       return candidate;
+    }
+
+    public static PollingPlace getPollingPlaceFromString(String pollingPlaceName){
+        PollingPlace pollingPlace = null;
+
+        return pollingPlace;
+    }
 
 
 

@@ -17,8 +17,6 @@ public final class PollingPlace {
         priorityVotes =new ArrayList<>();
     }
 
-
-
     /**
      * Reads the appropriate votes from the ballot and
      * creates a new Vote by calling addVote method.
@@ -27,23 +25,23 @@ public final class PollingPlace {
      * Also handles any small mistakes in the spelling during vote
      * cast according to the spec that there could be utmost 3 edit
      * distances.
-     *
+     *Also converts any empty spaces, to "-".
      *
      * @return true when successfully read.
      */
     public  boolean readVotes() throws FileNotFoundException {
         //Get the correct file name from the argument passed.
-        String actualFileName = "ballots-"+name.toLowerCase()+".txt";
+        String actualFileName = "ballots-"+name.toLowerCase().
+                replaceAll("\\s","-")+".txt";
         try {
             Scanner scanner = new Scanner(new File(actualFileName)).useDelimiter("\n");
             while (scanner.hasNext()){
                 String[] preferences = scanner.next().split(",");
-                String[] LDistanceNamesArray = new String[preferences.length];
                 List<String> LdistanceComputedNames = new ArrayList<>();
                 for (String votersCandidateName: preferences) {
                     LdistanceComputedNames.add(Utilities.LdistanceToCandidatesName(votersCandidateName));
                 }
-                addVote(LdistanceComputedNames.toArray(LDistanceNamesArray));
+                addVote(LdistanceComputedNames.toArray(new String[LdistanceComputedNames.size()]));
             }
             return true;
         } catch (FileNotFoundException e) {
@@ -130,7 +128,7 @@ public final class PollingPlace {
     /**
      * Just check for name equality
      * @param obj object to be compared.
-     * @return true if the names match
+     * @return true if the names match.
      */
     @Override
     public boolean equals(Object obj) {

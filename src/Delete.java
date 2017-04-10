@@ -14,20 +14,27 @@ public class Delete {
         }
 
         PollingPlace belleVue = new PollingPlace("belleVue");
-//        PollingPlace bothell = new PollingPlace("bothell");
+        PollingPlace bothell = new PollingPlace("bothell");
+        PollingPlace queen = new PollingPlace("u district");
         try {
            belleVue.readVotes();
-//           bothell.readVotes();
+           bothell.readVotes();
+            queen.readVotes();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         belleVue.processVotes();
-//        bothell.processVotes();
+        bothell.processVotes();
+        queen.processVotes();
 //        System.out.println(belleVue.getPriorityVotes());
         election.addDataFromPolls(belleVue.getName(),belleVue.getPriorityVotes());
-//        election.addDataFromPolls(bothell.getName(),bothell.getPriorityVotes());
+        election.addDataFromPolls(bothell.getName(),bothell.getPriorityVotes());
+        election.addDataFromPolls(queen.getName(),queen.getPriorityVotes());
 
+
+//        election.getCandidates().get("Barack Obama").setEliminated(true);
         election.processVotesAndAssignToCandidates();
+
         System.out.println(election.getVotes());
 
 
