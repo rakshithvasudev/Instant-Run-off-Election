@@ -121,7 +121,7 @@ public class Election {
      */
     public void processVotesAndAssignToCandidates() {
         //for (int i=0;i<candidates.size();i++)
-        processVotesAndAssignToCandidates(2);
+        processVotesAndAssignToCandidates(0);
     }
 
     /**
@@ -151,7 +151,10 @@ public class Election {
                     votes.put(currentCandidate,
                             (candidateVotesMap.get(currentCandidate) == null) ? 0 :
                                     candidateVotesMap.get(currentCandidate) + voteValue);
+                System.out.println(currentCandidate);
                 }
+
+            System.out.println(candidateVotesMap);
             }
         }
     }
