@@ -110,7 +110,7 @@ public final class ElectionTextUI {
                 addedPollingPlaces.add(pollingPlace);
                 pollingPlace.processVotes();
                 // TODO: add polling place's data to election totals
-                election.addDataFromPolls(pollingPlace.getName(), pollingPlace.getPriorityVotes());
+                election.addDataFromPolls(pollingPlace, pollingPlace.getPriorityVotes());
             } catch (FileNotFoundException e) {
                 // when the polling place is not found,
                 System.out.println("No such polling place was found.");

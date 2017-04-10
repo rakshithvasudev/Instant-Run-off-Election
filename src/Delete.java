@@ -14,25 +14,25 @@ public class Delete {
             e.printStackTrace();
         }
 
-//        PollingPlace belleVue = new PollingPlace("belleVue");
-//        ElectionTextUI.addedPollingPlaces.add(belleVue);
-        PollingPlace bothell = new PollingPlace("capitol hill");
+        PollingPlace belleVue = new PollingPlace("belleVue");
+        ElectionTextUI.addedPollingPlaces.add(belleVue);
+        PollingPlace bothell = new PollingPlace("bothell");
         ElectionTextUI.addedPollingPlaces.add(bothell);
 //        PollingPlace queen = new PollingPlace("u district");
 //        ElectionTextUI.addedPollingPlaces.add(queen);
         try {
-//           belleVue.readVotes();
+           belleVue.readVotes();
             bothell.readVotes();
 //            queen.readVotes();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-//        belleVue.processVotes();
+        belleVue.processVotes();
         bothell.processVotes();
 //        queen.processVotes();
 //        System.out.println(belleVue.getPriorityVotes());
-//        election.addDataFromPolls(belleVue.getName(),belleVue.getPriorityVotes());
-        election.addDataFromPolls(bothell.getName(),bothell.getPriorityVotes());
+        election.addDataFromPolls(belleVue,belleVue.getPriorityVotes());
+        election.addDataFromPolls(bothell,bothell.getPriorityVotes());
 //        election.addDataFromPolls(queen.getName(),queen.getPriorityVotes());
 
 
