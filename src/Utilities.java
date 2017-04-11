@@ -1,5 +1,3 @@
-import java.util.Comparator;
-
 /**
  * Created by Rakshith on 4/8/2017.
  */
@@ -36,7 +34,9 @@ public class Utilities{
             costs[0] = i;
             int nw = i - 1;
             for (int j = 1; j <= b.length(); j++) {
-                int cj = Math.min(1 + Math.min(costs[j], costs[j - 1]), a.charAt(i - 1) == b.charAt(j - 1) ? nw : nw + 1);
+                int cj = Math.min(1 + Math.min(costs[j],
+                        costs[j - 1]), a.charAt(i - 1) == b.charAt(j - 1) ?
+                        nw : nw + 1);
                 nw = costs[j];
                 costs[j] = cj;
             }
@@ -67,8 +67,8 @@ public class Utilities{
      * Everything is similar to LdistanceToCandidates(String currentCandidateName).
      * Except, instead of returning a Candidate, this returns the corresponding
      * Name that matches.
-     * @param currentCandidateName
-     * @return
+     * @param currentCandidateName Candidate name to be checked for Ldistance.
+     * @return matched candidate.
      */
     public static String LdistanceToCandidatesName(String currentCandidateName){
         for (Candidate currentCandidate: election.getCandidates().values()) {

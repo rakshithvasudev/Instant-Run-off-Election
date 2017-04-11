@@ -24,7 +24,7 @@ public class CandidateComparator implements Comparator<Candidate> {
     int candidate2Votes = election.getVotes().get(o2);
         if(candidate1Votes!=candidate2Votes)
             return candidate1Votes-candidate2Votes;
-        
+
         return o1.compareTo(o2);
     }
 }

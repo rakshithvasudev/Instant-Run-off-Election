@@ -120,9 +120,11 @@ public class Election {
      * Based on the run off, the parameter would be assigned.
      */
     public void processVotesAndAssignToCandidates() {
-        //for (int i=0;i<candidates.size();i++)
+        //keep a track of how many times this function was called.
         int i=0;
-        processVotesAndAssignToCandidates(i);
+        if(i<=votesFromPollingPlaces.size()) {
+            processVotesAndAssignToCandidates(i);
+        }
     }
 
     /**

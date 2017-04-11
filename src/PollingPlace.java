@@ -147,4 +147,6 @@ public final class PollingPlace {
         a = priorityVotes.hashCode()*votes.hashCode()*17*a;
         return a;
     }
+
+
 }
