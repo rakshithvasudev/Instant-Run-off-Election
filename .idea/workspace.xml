@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53ef6229-3e26-402a-a3f7-ff785bd5a834" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CSC526-HW5/Utilities.class" afterPath="$PROJECT_DIR$/out/production/CSC526-HW5/Utilities.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CSC526-HW5.iml" afterPath="$PROJECT_DIR$/CSC526-HW5.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Utilities.java" afterPath="$PROJECT_DIR$/src/Utilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tst/CandidateFactoryTest.java" afterPath="$PROJECT_DIR$/tst/CandidateFactoryTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Delete.java" afterPath="$PROJECT_DIR$/src/Delete.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,10 +52,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utilities.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Utilities.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Utilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1179">
+            <state relative-caret-position="2133">
               <caret line="116" column="56" lean-forward="false" selection-start-line="116" selection-start-column="56" selection-end-line="116" selection-end-column="56" />
               <folding />
             </state>
@@ -139,32 +135,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Delete.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Delete.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Delete.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1272">
-              <caret line="33" column="8" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ballots-bellevue.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ballots-bellevue.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ballots-bothell.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ballots-bothell.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="1868">
+              <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -212,10 +190,10 @@
         <option value="$PROJECT_DIR$/src/CandidateFactory.java" />
         <option value="$PROJECT_DIR$/src/PollingPlace.java" />
         <option value="$PROJECT_DIR$/src/ElectionTextUI.java" />
-        <option value="$PROJECT_DIR$/src/Delete.java" />
         <option value="$PROJECT_DIR$/src/Election.java" />
         <option value="$PROJECT_DIR$/src/Utilities.java" />
         <option value="$PROJECT_DIR$/tst/CandidateFactoryTest.java" />
+        <option value="$PROJECT_DIR$/src/Delete.java" />
       </list>
     </option>
   </component>
@@ -795,15 +773,15 @@
       <workItem from="1491631306368" duration="4033000" />
       <workItem from="1491678340429" duration="34675000" />
       <workItem from="1491756376778" duration="27277000" />
-      <workItem from="1491845797355" duration="28902000" />
+      <workItem from="1491845797355" duration="30531000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104293000" />
+    <option name="totallyTimeSpent" value="105922000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-14" y="-14" width="3868" height="2098" extended-state="7" />
+    <frame x="-14" y="-14" width="3868" height="2098" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -887,14 +865,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Delete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="424">
@@ -955,7 +925,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="5" column="35" lean-forward="true" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1225,14 +1197,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Delete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1272">
-          <caret line="33" column="8" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ballots-bellevue.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
@@ -1245,14 +1209,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="1111" column="3" lean-forward="true" selection-start-line="1111" selection-start-column="3" selection-end-line="1115" selection-end-column="76" />
           <folding />
         </state>
       </provider>
@@ -1354,9 +1310,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Utilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1179">
+        <state relative-caret-position="2133">
           <caret line="116" column="56" lean-forward="false" selection-start-line="116" selection-start-column="56" selection-end-line="116" selection-end-column="56" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/util/function/BiConsumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="44" column="17" lean-forward="false" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="617" column="61" lean-forward="false" selection-start-line="617" selection-start-column="61" selection-end-line="617" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Delete.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1868">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
