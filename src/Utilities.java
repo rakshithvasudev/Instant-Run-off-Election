@@ -94,5 +94,12 @@ public class Utilities{
     }
 
 
+    public static int getTotalVotesFromElection(){
+        int totalVotes = 0;
+        for (Integer currentCount : election.getVotes().values())
+            totalVotes += currentCount;
+        return totalVotes;
+    }
+
 
 }

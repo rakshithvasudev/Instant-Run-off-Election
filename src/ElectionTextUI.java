@@ -15,8 +15,10 @@ import java.util.Map;
  * @version Spring 2017
  */
 public final class ElectionTextUI {
-    static List<PollingPlace> addedPollingPlaces;
+    //After deleting Delete.java class, then initialize in consturctor
+    static List<PollingPlace> addedPollingPlaces = new ArrayList<>();
     Election election;
+    int i=0;
 
     /**
      * Constructs a new text user interface for managing a election.
@@ -26,7 +28,6 @@ public final class ElectionTextUI {
         System.out.println("Election Vote Counter");
 
         // TODO: initialization code can go here
-        addedPollingPlaces = new ArrayList<>();
         election = election.getElectionInstance();
 
         try {
@@ -148,9 +149,7 @@ public final class ElectionTextUI {
         // when the election is closed,
         if (!election.isOpenStill()) {
             System.out.println("Current election results for all polling places.");
-            int totalVotes = 0;
-            for (Integer currentCount : election.getVotes().values())
-                totalVotes += currentCount;
+            int totalVotes =  Utilities.getTotalVotesFromElection();
 
             // TODO: show the current results
             System.out.println("NAME                          PARTY   VOTES     %");
@@ -176,7 +175,7 @@ public final class ElectionTextUI {
 
         String pollingPlaceName = ValidInputReader.getValidString("Name of polling place:", "^[a-zA-Z0-9 ]+$");
         boolean pollingPlaceFound = false;
-        int totalVotes = 0;
+        int totalVotes = Utilities.getTotalVotesFromElection();
 
         // when the polling place exists,
         for (PollingPlace currentPlace : addedPollingPlaces) {
@@ -184,8 +183,7 @@ public final class ElectionTextUI {
                 System.out.println("Current election results for " + pollingPlaceName + ".");
                 // TODO: show the current results for this polling place
                 pollingPlaceFound = true;
-                for (Integer currentCount : election.getVotes().values())
-                    totalVotes += currentCount;
+
                 System.out.println("NAME                          PARTY   VOTES     %");
                 for (Map.Entry<Candidate, Integer> currentVote : currentPlace.getPriorityVotes().get(0).entrySet()) {
                     System.out.printf("%-30s%-8s%5d%9.1f\n",
@@ -207,19 +205,30 @@ public final class ElectionTextUI {
     // votes to the next available choice for those ballots.
     private void eliminate() {
         // when the election is not closed,
-        System.out.println("The election is still open for votes.");
-        System.out.println("You must close the election before eliminating candidates.");
+        if(election.isOpenStill()) {
+            System.out.println("The election is still open for votes.");
+            System.out.println("You must close the election before eliminating candidates.");
+            return;
+        }
 
         // when the election already has a winner,
-        System.out.println("A candidate already has a majority of the votes.");
-        System.out.println("You cannot remove any more candidates.");
+        if(election.isMajority().size()>0) {
+            System.out.println("A candidate already has a majority of the votes.");
+            System.out.println("You cannot remove any more candidates.");
+            return;
+        }
 
         // when we can eliminate a candidate,
-        System.out.println("Eliminating the lowest-ranked candidate.");
+        if(election.isMajority().size()<1)
+            System.out.println("Eliminating the lowest-ranked candidate.");
 
         // TODO: eliminate the candidate
+        if (election.eliminateCandidate(i).size()>0)
+
+
+
         System.out.println("Eliminated (candidate).");
-        crash("TODO: implement eliminate");
+
     }
 
     // This helper is just put into the text UI code to mark places where you

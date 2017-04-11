@@ -149,26 +149,40 @@ public class Election {
           }
     }
 
+
     /**
      * Removes the candidate having least votes from the election by distributing his votes
      * to the 2nd preferences votes.
      */
-    public void eliminateCandidate(int i){
+    public Map<Candidate,Integer> eliminateCandidate(int i){
         int least=votes.values().iterator().next();
-        Candidate candidateToBeEliminated=null;
+        Map<Candidate,Integer> candidateToBeEliminated=new HashMap<>();
         for (Integer leastVotes: votes.values())
             if(leastVotes<least)
                 least=leastVotes;
         for (Map.Entry<Candidate,Integer> currentMap:votes.entrySet())
             if(currentMap.getValue()==least)
-                candidateToBeEliminated = currentMap.getKey();
+                candidateToBeEliminated.put(currentMap.getKey(),currentMap.getValue());
 //        distributeVotes(candidateToBeEliminated,i);
 
-        System.out.println(candidateToBeEliminated);
+
+        return candidateToBeEliminated;
     }
 
-
-
+    /**
+     * Checks if any candidate has votes larger than or equal to 50% +1vote
+     * of the total votes who is actually the winner.
+     * @return a winner if found.
+     */
+    public Map<Candidate,Integer> isMajority(){
+        int totalVotes = Utilities.getTotalVotesFromElection();
+        Map<Candidate,Integer> winner = new HashMap<>();
+        for (Map.Entry<Candidate,Integer> currentVotes: votes.entrySet()) {
+            if((currentVotes.getValue()/(double)totalVotes)*100 >=1+(totalVotes/2))
+                winner.put(currentVotes.getKey(),currentVotes.getValue());
+        }
+        return winner;
+    }
 
 
     /**
