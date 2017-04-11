@@ -223,7 +223,7 @@ public final class ElectionTextUI {
             System.out.println("Eliminating the lowest-ranked candidate.");
 
         // TODO: eliminate the candidate
-        if (election.eliminateCandidate(i).size()>0)
+         election.eliminateCandidate(i);
 
 
 

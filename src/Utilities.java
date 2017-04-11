@@ -1,3 +1,5 @@
+import java.util.Map;
+
 /**
  * Created by Rakshith on 4/8/2017.
  */
@@ -93,12 +95,29 @@ public class Utilities{
        return candidate;
     }
 
-
+    /**
+     * Gets the total votes count from the election.
+     * @return total votes
+     */
     public static int getTotalVotesFromElection(){
         int totalVotes = 0;
         for (Integer currentCount : election.getVotes().values())
             totalVotes += currentCount;
         return totalVotes;
+    }
+
+    /**
+     * Add the key value pairs to the votes, if the key is already added,
+     * just update the values, otherwise add newly to the map.
+     *
+     * @param map1
+     * @param map2
+     * @return
+     */
+    public static boolean mergeMapsAddingIntegerValues(Map<Candidate, Integer> map1,Map<Candidate, Integer> map2){
+        map1.forEach((Candidate,Integer)->
+                map2.merge(Candidate,Integer, java.lang.Integer::sum));
+        return true;
     }
 
 
