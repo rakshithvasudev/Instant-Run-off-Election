@@ -110,9 +110,17 @@ public class Utilities{
      * Add the key value pairs to the votes, if the key is already added,
      * just update the values, otherwise add newly to the map.
      *
-     * @param map1
-     * @param map2
-     * @return
+     * If the specified key is not already associated with a value or is
+     * associated with null, associates it with the given non-null value.
+     * Otherwise, replaces the associated value with the results of the given
+     * remapping function, or removes if the result is {null}. This
+     * method may be of use when combining multiple mapped values for a key.
+     *
+     * @param map1 iterates through the elements of map1.
+     * @param map2 adds all the values from map1 to map2, maintaining the keys.
+     * @throws NullPointerException if the null values are passed.
+     * @return true if merging happened.
+     *
      */
     public static boolean mergeMapsAddingIntegerValues(Map<Candidate, Integer> map1,Map<Candidate, Integer> map2){
         map1.forEach((Candidate,Integer)->
