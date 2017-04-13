@@ -216,7 +216,7 @@ public final class ElectionTextUI {
         if(election.isMajority().size()>0) {
             System.out.println("A candidate already has a majority of the votes.");
             System.out.println("You cannot remove any more candidates.");
-            System.out.println(election.isMajority());
+            System.out.println("Majority Candidate Name: "+ election.isMajority().keySet().iterator().next() +".");
             return;
         }
 

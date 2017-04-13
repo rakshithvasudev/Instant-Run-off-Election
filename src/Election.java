@@ -26,7 +26,7 @@ public class Election {
 
     /**
      * Uses the singleton Pattern to get a unique Instance.
-     * Implements the lazy instantiation mechanism to achieve
+     * Implements the double check instantiation mechanism to achieve
      * singularity in Election. Handles multithreaded environment
      * issues.
      *
@@ -114,8 +114,6 @@ public class Election {
         votesFromPollingPlaces.put(pollPlace, votesList);
     }
 
-
-
     /**
      * Go through every single pollPlace and add the
      * ith preference votes to the votes<Candidate, Integer> Map.
@@ -132,45 +130,45 @@ public class Election {
             // gets the ith vote preference of Map<Candidate, Integer>.
             candidateVotesMap = currentPollingPlace.getPriorityVotes().get(i);
             //Merge 2 maps adding their respective values in keys.
-            Utilities.mergeMapsAddingIntegerValues(candidateVotesMap,votes);
+            Utilities.mergeMapsAddingIntegerValues(candidateVotesMap, votes);
         }
     }
 
     /**
      * Checks if any candidate has votes larger than or equal to 50% +1vote
      * of the total votes, who is actually the winner.
+     *
      * @return a winner if found.
      */
-    public Map<Candidate,Integer> isMajority(){
+    public Map<Candidate, Integer> isMajority() {
         int totalVotes = Utilities.getTotalVotesFromElection();
-        Map<Candidate,Integer> winner = new HashMap<>();
-        for (Map.Entry<Candidate,Integer> currentVotes: votes.entrySet()) {
-            if((currentVotes.getValue()/(double)totalVotes)*100 >=50)
-                winner.put(currentVotes.getKey(),currentVotes.getValue());
+        Map<Candidate, Integer> winner = new HashMap<>();
+        for (Map.Entry<Candidate, Integer> currentVotes : votes.entrySet()) {
+            if ((currentVotes.getValue() / (double) totalVotes) * 100 >= 50)
+                winner.put(currentVotes.getKey(), currentVotes.getValue());
         }
         return winner;
     }
-
 
     /**
      * Removes the candidate having least votes from the election by distributing his votes
      * to the 2nd preferences votes.
      */
-    public String eliminateCandidate(int i){
+    public String eliminateCandidate(int i) {
         Iterator iterator = votes.values().iterator();
         Candidate candidateToBeEliminated;
-        String candidateName="";
-        int least=0;
+        String candidateName = "";
+        int least = 0;
         if (iterator.hasNext())
-            least=votes.values().iterator().next();
-        for (Integer leastVotes: votes.values())
-            if(leastVotes<least)
-                least=leastVotes;
-        for (Map.Entry<Candidate,Integer> currentMap:votes.entrySet()){
-            if(currentMap.getValue()==least) {
+            least = votes.values().iterator().next();
+        for (Integer leastVotes : votes.values())
+            if (leastVotes < least)
+                least = leastVotes;
+        for (Map.Entry<Candidate, Integer> currentMap : votes.entrySet()) {
+            if (currentMap.getValue() == least) {
                 candidateToBeEliminated = currentMap.getKey();
                 distributeVotes(currentMap.getKey(), i);
-                candidateName=candidateToBeEliminated.getName();
+                candidateName = candidateToBeEliminated.getName();
                 candidateToBeEliminated.setEliminated(true);
                 votes.remove(candidateToBeEliminated);
                 return candidateName;
@@ -184,7 +182,7 @@ public class Election {
      * candidate name.
      *
      * @param candidateToBeEliminated the candidate that has to be removed votes from.
-     * @param i             ith run off = ith preference votes would be extracted.
+     * @param i                       ith run off = ith preference votes would be extracted.
      */
     private void distributeVotes(Candidate candidateToBeEliminated, int i) {
         Candidate nextCandidate;
@@ -193,33 +191,23 @@ public class Election {
         for (PollingPlace currentPollingPlace : addedPlaces) {
             for (Vote currentVote : currentPollingPlace.getVotes()) {
                 if (candidateToBeEliminated.getName().equals(currentVote.getPreferences().get(i))) {
-                    //fix any indexOutOfBounds exception that might occur.
-                    if (i + 1 >= currentVote.getPreferences().size())
-                        i = i - 1;
                     //get the next candidate from the preferences name.
                     nextCandidate = Utilities.
                             getCandidateFromString(currentVote.getPreferences().get(i + 1));
-
                     if (nextCandidate.isEliminated())
                         nextCandidate = Utilities.
                                 getCandidateFromString(currentVote.getPreferences().get(i + 2));
-
-                    if(nextCandidate.isEliminated())
+                    if (nextCandidate.isEliminated())
                         nextCandidate = Utilities.
                                 getCandidateFromString(currentVote.getPreferences().get(i + 3));
-
-
                     //If the candidate is eliminated don't merge that candidate, remove instead.
                     votes.keySet().removeIf(Candidate::isEliminated);
-
-
                     //If the candidate is eliminated don't merge that candidate, remove instead.
                     candidateVotesMap.keySet().removeIf(Candidate::isEliminated);
-
                     //add the votes for the next candidate in the preference list.
-                    candidateVotesMap.put(nextCandidate,1);
-                    //merge the values in the maps
-                    Utilities.mergeMapsAddingIntegerValues(candidateVotesMap,votes);
+                    candidateVotesMap.put(nextCandidate, 1);
+                    //merge the values in the maps.
+                    Utilities.mergeMapsAddingIntegerValues(candidateVotesMap, votes);
                 }
             }
         }
