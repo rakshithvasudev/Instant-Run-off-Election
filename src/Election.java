@@ -131,6 +131,8 @@ public class Election {
             candidateVotesMap = currentPollingPlace.getPriorityVotes().get(i);
             //Merge 2 maps adding their respective values in keys.
             Utilities.mergeMapsAddingIntegerValues(candidateVotesMap, votes);
+           //sort the map.
+           votes = Utilities.sortMapByVotesAndName(votes);
         }
     }
 

@@ -21,6 +21,6 @@ public class CandidateComparator implements Comparator<Map.Entry<Candidate,Integ
     public int compare(Map.Entry<Candidate, Integer> o1, Map.Entry<Candidate, Integer> o2) {
         if (o1.getValue()!=(int)o2.getValue())
             return o2.getValue()-o1.getValue();
-        return o1.getKey().compareTo(o2.getKey());
+        return o2.getKey().compareTo(o1.getKey());
     }
 }
