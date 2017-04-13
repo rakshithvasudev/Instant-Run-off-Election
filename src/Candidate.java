@@ -56,7 +56,7 @@ public abstract class Candidate implements Cloneable, Comparable{
     public int hashCode() {
         int a = 31 * name.hashCode();
         a=party.hashCode()*a;
-        a = ((isEliminated) ? 1231 : 1237) * a;
+//        a = ((isEliminated) ? 1231 : 1237) * a;
         return a;
     }
 

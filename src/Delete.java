@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.InterruptedIOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -41,13 +42,12 @@ public class Delete {
 
 //        election.getCandidates().get("John McCain").setEliminated(true);
         election.processVotesAndAssignToCandidates();
-        System.out.println("before elimination: "+election.getVotes());
+//        System.out.println("before elimination: "+election.getVotes());
 
-        System.out.println(election.eliminateCandidate(0));
+        election.isMajority();
+       // System.out.println(election.eliminateCandidate(1));
 
-        System.out.println("after elimination: "+ election.getVotes());
-
-
+//        System.out.println("after elimination: "+ election.getVotes());
 
 
 

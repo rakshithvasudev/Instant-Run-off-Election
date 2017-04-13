@@ -156,7 +156,7 @@ public class Election {
         int totalVotes = Utilities.getTotalVotesFromElection();
         Map<Candidate,Integer> winner = new HashMap<>();
         for (Map.Entry<Candidate,Integer> currentVotes: votes.entrySet()) {
-            if((currentVotes.getValue()/(double)totalVotes)*100 >=(totalVotes/2)+1)
+            if((currentVotes.getValue()/(double)totalVotes)*100 >=(double)(totalVotes/2)*100+1)
                 winner.put(currentVotes.getKey(),currentVotes.getValue());
         }
         return winner;
@@ -167,9 +167,10 @@ public class Election {
      * Removes the candidate having least votes from the election by distributing his votes
      * to the 2nd preferences votes.
      */
-    public boolean eliminateCandidate(int i){
+    public String eliminateCandidate(int i){
         Iterator iterator = votes.values().iterator();
         Candidate candidateToBeEliminated;
+        String candidateName="";
         int least=0;
         if (iterator.hasNext())
             least=votes.values().iterator().next();
@@ -180,11 +181,13 @@ public class Election {
             if(currentMap.getValue()==least) {
                 candidateToBeEliminated = currentMap.getKey();
                 distributeVotes(currentMap.getKey(), i);
+                candidateName=candidateToBeEliminated.getName();
+                candidateToBeEliminated.setEliminated(true);
                 votes.remove(candidateToBeEliminated);
-                return true;
+                return candidateName;
             }
         }
-        return false;
+        return candidateName;
     }
 
     /**
@@ -207,6 +210,7 @@ public class Election {
                     //get the next candidate from the preferences name.
                     nextCandidate = Utilities.
                             getCandidateFromString(currentVote.getPreferences().get(i + 1));
+                    
                     //add the votes for the next candidate in the preference list.
                     candidateVotesMap.put(nextCandidate,1);
                     //merge the values in the maps

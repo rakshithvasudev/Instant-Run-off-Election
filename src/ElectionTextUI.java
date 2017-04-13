@@ -18,7 +18,7 @@ public final class ElectionTextUI {
     //After deleting Delete.java class, then initialize in consturctor
     static List<PollingPlace> addedPollingPlaces = new ArrayList<>();
     Election election;
-    int i=0;
+    int i;
 
     /**
      * Constructs a new text user interface for managing a election.
@@ -29,6 +29,7 @@ public final class ElectionTextUI {
 
         // TODO: initialization code can go here
         election = election.getElectionInstance();
+        i=0;
 
         try {
             election.readCandidates();
@@ -215,6 +216,7 @@ public final class ElectionTextUI {
         if(election.isMajority().size()>0) {
             System.out.println("A candidate already has a majority of the votes.");
             System.out.println("You cannot remove any more candidates.");
+            System.out.println(election.isMajority());
             return;
         }
 
@@ -223,11 +225,9 @@ public final class ElectionTextUI {
             System.out.println("Eliminating the lowest-ranked candidate.");
 
         // TODO: eliminate the candidate
-         election.eliminateCandidate(i);
-
-
-
-        System.out.println("Eliminated (candidate).");
+        String eliminatedName =  election.eliminateCandidate(i);
+        i++;
+        System.out.println("Eliminated: " + eliminatedName);
 
     }
 
