@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53ef6229-3e26-402a-a3f7-ff785bd5a834" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Election.java" afterPath="$PROJECT_DIR$/src/Election.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Utilities.java" afterPath="$PROJECT_DIR$/src/Utilities.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +21,8 @@
       <file leaf-file-name="Election.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Election.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1429">
-              <caret line="219" column="20" lean-forward="true" selection-start-line="219" selection-start-column="20" selection-end-line="219" selection-end-column="20" />
+            <state relative-caret-position="369">
+              <caret line="199" column="71" lean-forward="true" selection-start-line="199" selection-start-column="71" selection-end-line="199" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -773,12 +771,12 @@
       <workItem from="1491956153992" duration="1019000" />
       <workItem from="1492049408486" duration="16053000" />
       <workItem from="1492103119974" duration="2976000" />
-      <workItem from="1492120506158" duration="1390000" />
+      <workItem from="1492120506158" duration="1522000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129957000" />
+    <option name="totallyTimeSpent" value="130089000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="-14" width="3868" height="2098" extended-state="6" />
@@ -1294,8 +1292,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Election.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1429">
-          <caret line="219" column="20" lean-forward="true" selection-start-line="219" selection-start-column="20" selection-end-line="219" selection-end-column="20" />
+        <state relative-caret-position="369">
+          <caret line="199" column="71" lean-forward="true" selection-start-line="199" selection-start-column="71" selection-end-line="199" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -200,19 +200,19 @@ public class Election {
                     //get the next candidate from the preferences name.
                     nextCandidate = Utilities.
                             getCandidateFromString(currentVote.getPreferences().get(i + 1));
-//                    if (nextCandidate.isEliminated())
-//                        nextCandidate = Utilities.
-//                                getCandidateFromString(currentVote.getPreferences().get(i + 2));
-//                    if (nextCandidate.isEliminated())
-//                        nextCandidate = Utilities.
-//                                getCandidateFromString(currentVote.getPreferences().get(i + 3));
-//                    if (nextCandidate.isEliminated())
-//                        nextCandidate = Utilities.
-//                                getCandidateFromString(currentVote.getPreferences().get(i + 4));
-                    for (int counter=0;counter<currentVote.getPreferences().size() &&
-                            nextCandidate.isEliminated();i++)
+                    if (nextCandidate.isEliminated())
                         nextCandidate = Utilities.
-                                getCandidateFromString(currentVote.getPreferences().get(i + counter));
+                                getCandidateFromString(currentVote.getPreferences().get(i + 2));
+                    if (nextCandidate.isEliminated())
+                        nextCandidate = Utilities.
+                                getCandidateFromString(currentVote.getPreferences().get(i + 3));
+                    if (nextCandidate.isEliminated())
+                        nextCandidate = Utilities.
+                                getCandidateFromString(currentVote.getPreferences().get(i + 4));
+//                    for (int counter=0;counter<currentVote.getPreferences().size() &&
+//                            nextCandidate.isEliminated();i++)
+//                        nextCandidate = Utilities.
+//                                getCandidateFromString(currentVote.getPreferences().get(i + counter));
 
 
                     //If the candidate is eliminated don't merge that candidate, remove instead.
