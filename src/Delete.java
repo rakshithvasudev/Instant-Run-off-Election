@@ -11,6 +11,7 @@ public class Delete {
 
     public static void main(String[] args) {
         Election election = Election.getElectionInstance();
+        int i=0;
 
         try {
             election.readCandidates();
@@ -20,35 +21,33 @@ public class Delete {
 
         PollingPlace belleVue = new PollingPlace("bellevue");
         ElectionTextUI.addedPollingPlaces.add(belleVue);
-        PollingPlace bothell = new PollingPlace("bothell");
-        ElectionTextUI.addedPollingPlaces.add(bothell);
+//        PollingPlace bothell = new PollingPlace("bothell");
+//        ElectionTextUI.addedPollingPlaces.add(bothell);
 //        PollingPlace queen = new PollingPlace("queen anne");
 //        ElectionTextUI.addedPollingPlaces.add(queen);
         try {
            belleVue.readVotes();
-            bothell.readVotes();
+//            bothell.readVotes();
 //            queen.readVotes();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         belleVue.processVotes();
-        bothell.processVotes();
+//        bothell.processVotes();
 //        queen.processVotes();
 //        System.out.println(belleVue.getPriorityVotes());
         election.addDataFromPolls(belleVue,belleVue.getPriorityVotes());
-        election.addDataFromPolls(bothell,bothell.getPriorityVotes());
+//        election.addDataFromPolls(bothell,bothell.getPriorityVotes());
 //        election.addDataFromPolls(queen,queen.getPriorityVotes());
 
 
-//        election.getCandidates().get("John McCain").setEliminated(true);
-        election.processVotesAndAssignToCandidates();
-//        System.out.println("before elimination: "+election.getVotes());
 
-        election.isMajority();
-       // System.out.println(election.eliminateCandidate(1));
-
-//        System.out.println("after elimination: "+ election.getVotes());
-
+        election.processVotesAndAssignToCandidates(i);
+        System.out.println(election.getVotes());
+        election.eliminateCandidate(i);
+        System.out.println(election.getVotes());
+        election.eliminateCandidate(i);
+        System.out.println(election.getVotes());
 
 
     }

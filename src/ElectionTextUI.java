@@ -111,7 +111,7 @@ public final class ElectionTextUI {
             pollingPlace.processVotes();
             // TODO: add polling place's data to election totals
             election.addDataFromPolls(pollingPlace, pollingPlace.getPriorityVotes());
-            election.processVotesAndAssignToCandidates();
+            election.processVotesAndAssignToCandidates(i);
             System.out.println("Added " + pollingPlaceName + ".");
         } catch (Exception e) {
             // when the polling place is not found,
@@ -226,7 +226,6 @@ public final class ElectionTextUI {
 
         // TODO: eliminate the candidate
         String eliminatedName =  election.eliminateCandidate(i);
-        i++;
         System.out.println("Eliminated: " + eliminatedName);
 
     }
