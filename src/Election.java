@@ -144,7 +144,7 @@ public class Election {
         int totalVotes = Utilities.getTotalVotesFromElection();
         Map<Candidate, Integer> winner = new HashMap<>();
         for (Map.Entry<Candidate, Integer> currentVotes : votes.entrySet()) {
-            if ((currentVotes.getValue() / (double) totalVotes) * 100 >= 50)
+            if ((currentVotes.getValue() / (double) totalVotes) * 100 > 50)
                 winner.put(currentVotes.getKey(), currentVotes.getValue());
         }
         return winner;

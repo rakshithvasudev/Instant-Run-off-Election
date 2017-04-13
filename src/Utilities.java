@@ -1,4 +1,4 @@
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Rakshith on 4/8/2017.
@@ -87,7 +87,7 @@ public class Utilities{
      * @return Corresponding candidate, if available. Null otherwise.
      */
     public static Candidate getCandidateFromString(String candidateName){
-        Candidate candidate = null;
+        Candidate candidate = LdistanceToCandidates(candidateName);
         for (Candidate currentCandidate:election.getCandidates().values()) {
             if(currentCandidate.getName().equalsIgnoreCase(candidateName))
                 candidate = currentCandidate.clone();
@@ -128,5 +128,18 @@ public class Utilities{
         return true;
     }
 
+    /**
+     * This method sorts the map based on the votes and name specs.
+     * @param map the required map.
+     * @return the sorted map.
+     */
+    public static Map<Candidate,Integer> sortMapByVotesAndName(Map<Candidate,Integer> map){
+        List<Map.Entry<Candidate,Integer>> candidates = new LinkedList<>(map.entrySet());
+        Collections.sort(candidates, new CandidateComparator());
+        Map<Candidate,Integer> result = new LinkedHashMap<>();
+        for (Map.Entry<Candidate,Integer> currentEntry: candidates)
+            result.put(currentEntry.getKey(),currentEntry.getValue());
+        return result;
+    }
 
 }

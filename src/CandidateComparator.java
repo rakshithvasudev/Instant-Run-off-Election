@@ -1,4 +1,5 @@
 import java.util.Comparator;
+import java.util.Map;
 
 /**
  * Created by Rakshith on 4/10/2017.
@@ -7,9 +8,7 @@ import java.util.Comparator;
  * This class breaks the tie in the event that the candidates have
  * same number of votes.
  */
-public class CandidateComparator implements Comparator<Candidate> {
-    Election election = Election.getElectionInstance();
-
+public class CandidateComparator implements Comparator<Map.Entry<Candidate,Integer>> {
     /**
      * Compares 2 candidates by their votes.
      * If their votes are equal, then the compares by their
@@ -19,12 +18,9 @@ public class CandidateComparator implements Comparator<Candidate> {
      * @return >0 or ==0 <0
      */
     @Override
-    public int compare(Candidate o1, Candidate o2) {
-    int candidate1Votes = election.getVotes().get(o1);
-    int candidate2Votes = election.getVotes().get(o2);
-        if(candidate1Votes!=candidate2Votes)
-            return candidate1Votes-candidate2Votes;
-
-        return o1.compareTo(o2);
+    public int compare(Map.Entry<Candidate, Integer> o1, Map.Entry<Candidate, Integer> o2) {
+        if (o1.getValue()!=(int)o2.getValue())
+            return o2.getValue()-o1.getValue();
+        return o1.getKey().compareTo(o2.getKey());
     }
 }

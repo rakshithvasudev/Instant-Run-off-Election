@@ -44,11 +44,12 @@ public class Delete {
 
         election.processVotesAndAssignToCandidates(i);
         System.out.println(election.getVotes());
-        election.eliminateCandidate(i);
-        System.out.println(election.getVotes());
-        election.eliminateCandidate(i);
-        System.out.println(election.getVotes());
+//        election.eliminateCandidate(i);
+//        System.out.println(election.getVotes());
+//        election.eliminateCandidate(i);
+//        System.out.println(election.getVotes());
 
+        System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
 
     }
 }
