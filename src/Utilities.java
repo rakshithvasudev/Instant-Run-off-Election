@@ -150,27 +150,25 @@ public class Utilities{
      */
     public static List<Map.Entry<Candidate,Integer>> sortMapForElimination(Set<Map.Entry<Candidate, Integer>> allCandidates) {
         List<Map.Entry<Candidate,Integer>> result = new ArrayList<>(allCandidates);
-        List<Integer> dontRemoveIndices = new ArrayList<>();
+//        System.out.println("before sorted elimnation map: "+ result);
+        List<Map.Entry<Candidate,Integer>> dontRemoveIndices = new ArrayList<>();
         for (int i=0;i<result.size()-1;i++){
             if(result.get(i).getValue()==(int)result.get(i+1).getValue()){
-                dontRemoveIndices.add(i);
-                dontRemoveIndices.add(i+1);
+                dontRemoveIndices.add(result.get(i));
+                dontRemoveIndices.add(result.get(i+1));
             }
         }
-
-       for (int i=0;i<dontRemoveIndices.size();i++){
-            if(i!=dontRemoveIndices.get(i))
-                result.remove(i);
-        }
-
+//        System.out.println("Dont remove these indicies: "+ dontRemoveIndices);
+        result.retainAll(dontRemoveIndices);
+//        System.out.println("After removing non equal votes elements: "+ result);
         Collections.sort(result, new Comparator<Map.Entry<Candidate, Integer>>() {
             @Override
             public int compare(Map.Entry<Candidate, Integer> o1, Map.Entry<Candidate, Integer> o2) {
-                if(o1.getValue()!=(int)o2.getValue())
-                    return o1.getValue()-(o2.getValue());
                 return o2.getKey().compareTo(o1.getKey());
             }
         });
+
+//        System.out.println("sorted elimnation map: "+ result );
         return result;
     }
 }

@@ -170,14 +170,18 @@ public class Election {
         for (Integer leastVotes : votes.values())
             if (leastVotes < least)
                 least = leastVotes;
-
         for (Map.Entry<Candidate, Integer> currentMap : votes.entrySet()) {
             if (currentMap.getValue() == least) {
                 candidateToBeEliminated = currentMap.getKey();
-                distributeVotes(currentMap.getKey(), i);
+                if(eliminationOrderCandidates.size()>0)
+                    if(eliminationOrderCandidates.get(0).getValue()==least)
+                    candidateToBeEliminated = eliminationOrderCandidates.get(0).getKey();
+                distributeVotes(candidateToBeEliminated, i);
                 candidateName = candidateToBeEliminated.getName();
                 candidateToBeEliminated.setEliminated(true);
                 votes.remove(candidateToBeEliminated);
+                if(eliminationOrderCandidates.size()>0)
+                    eliminationOrderCandidates.remove(0);
                 return candidateName;
             }
         }
