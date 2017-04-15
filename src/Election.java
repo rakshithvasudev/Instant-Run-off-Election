@@ -159,7 +159,8 @@ public class Election {
      * @return name of the eliminated candidate.
      */
     public String eliminateCandidate(int i) {
-//        List<Candidate> equalVotesCandidates= new ArrayList<>();
+        List<Map.Entry<Candidate,Integer>> eliminationOrderCandidates=
+                Utilities.sortMapForElimination(votes.entrySet());
         Iterator iterator = votes.values().iterator();
         Candidate candidateToBeEliminated;
         String candidateName = "";
@@ -169,10 +170,10 @@ public class Election {
         for (Integer leastVotes : votes.values())
             if (leastVotes < least)
                 least = leastVotes;
+
         for (Map.Entry<Candidate, Integer> currentMap : votes.entrySet()) {
             if (currentMap.getValue() == least) {
                 candidateToBeEliminated = currentMap.getKey();
-//                equalVotesCandidates.add(candidateToBeEliminated);
                 distributeVotes(currentMap.getKey(), i);
                 candidateName = candidateToBeEliminated.getName();
                 candidateToBeEliminated.setEliminated(true);
@@ -200,27 +201,18 @@ public class Election {
                     //get the next candidate from the preferences name.
                     nextCandidate = Utilities.
                             getCandidateFromString(currentVote.getPreferences().get(i + 1));
-                    if (nextCandidate.isEliminated())
+                    //if the "nextCandidate" is eliminated, then get the actual next candidate.
+                    for (int counter=2;counter<=currentVote.getPreferences().size() &&
+                            nextCandidate.isEliminated();counter++)
                         nextCandidate = Utilities.
-                                getCandidateFromString(currentVote.getPreferences().get(i + 2));
-                    if (nextCandidate.isEliminated())
-                        nextCandidate = Utilities.
-                                getCandidateFromString(currentVote.getPreferences().get(i + 3));
-                    if (nextCandidate.isEliminated())
-                        nextCandidate = Utilities.
-                                getCandidateFromString(currentVote.getPreferences().get(i + 4));
-//                    for (int counter=0;counter<currentVote.getPreferences().size() &&
-//                            nextCandidate.isEliminated();i++)
-//                        nextCandidate = Utilities.
-//                                getCandidateFromString(currentVote.getPreferences().get(i + counter));
-
-
+                                getCandidateFromString(currentVote.getPreferences().
+                                        get(i + counter));
                     //If the candidate is eliminated don't merge that candidate, remove instead.
                     votes.keySet().removeIf(Candidate::isEliminated);
                     candidateVotesMap.keySet().removeIf(Candidate::isEliminated);
                     //add the votes for the next candidate in the preference list.
                     candidateVotesMap.put(nextCandidate, 1);
-                    //merge the values in the maps.
+                    //merge the values in candidateVotesMap and votes Maps.
                     Utilities.mergeMapsAddingIntegerValues(candidateVotesMap, votes);
                 }
             }

@@ -133,10 +133,17 @@ public final class ElectionTextUI {
     // Called when C key is pressed from main menu.
     // Closes the election so that no more voting can take place.
     private void closeElection() {
-        System.out.println("Closing the election.");
 
+        if(!election.isOpenStill()) {
+            System.out.println("Election is already closed");
+            return;
+        }
+        System.out.println("Closing the election.");
         // TODO: close the election
         election.closeElection();
+
+
+
     }
 
     // Called when R key is pressed from main menu.
@@ -151,6 +158,13 @@ public final class ElectionTextUI {
         if (!election.isOpenStill()) {
             System.out.println("Current election results for all polling places.");
             int totalVotes =  Utilities.getTotalVotesFromElection();
+
+            if(election.getVotes().entrySet().size()==0){
+                System.out.println("You have not added any polling place. " +
+                        "Sorry! Nothing can be shown now.");
+                return;
+            }
+
 
             // TODO: show the current results
             System.out.println("NAME                          PARTY   VOTES     %");
@@ -216,7 +230,7 @@ public final class ElectionTextUI {
         if(election.isMajority().size()>0) {
             System.out.println("A candidate already has a majority of the votes.");
             System.out.println("You cannot remove any more candidates.");
-            System.out.println("Majority Candidate Name: "+ election.isMajority().keySet().iterator().next() +".");
+            System.out.println("Majority Candidate Name: "+ election.isMajority().keySet().iterator().next().getName() +".");
             return;
         }
 
@@ -226,6 +240,10 @@ public final class ElectionTextUI {
 
         // TODO: eliminate the candidate
         String eliminatedName =  election.eliminateCandidate(i);
+        if(eliminatedName.length()<=0) {
+            System.out.println("There is nobody to eliminate.");
+            return;
+        }
         System.out.println("Eliminated: " + eliminatedName);
 
     }

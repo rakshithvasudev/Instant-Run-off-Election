@@ -141,4 +141,36 @@ public class Utilities{
             result.put(currentEntry.getKey(),currentEntry.getValue());
         return result;
     }
+
+    /**
+     * Takes all candidates and removes those candidates whose votes are not the same and
+     * returns a sorted List that can be used.
+     * @param allCandidates all candidates
+     * @return
+     */
+    public static List<Map.Entry<Candidate,Integer>> sortMapForElimination(Set<Map.Entry<Candidate, Integer>> allCandidates) {
+        List<Map.Entry<Candidate,Integer>> result = new ArrayList<>(allCandidates);
+        List<Integer> dontRemoveIndices = new ArrayList<>();
+        for (int i=0;i<result.size()-1;i++){
+            if(result.get(i).getValue()==(int)result.get(i+1).getValue()){
+                dontRemoveIndices.add(i);
+                dontRemoveIndices.add(i+1);
+            }
+        }
+
+       for (int i=0;i<dontRemoveIndices.size();i++){
+            if(i!=dontRemoveIndices.get(i))
+                result.remove(i);
+        }
+
+        Collections.sort(result, new Comparator<Map.Entry<Candidate, Integer>>() {
+            @Override
+            public int compare(Map.Entry<Candidate, Integer> o1, Map.Entry<Candidate, Integer> o2) {
+                if(o1.getValue()!=(int)o2.getValue())
+                    return o1.getValue()-(o2.getValue());
+                return o2.getKey().compareTo(o1.getKey());
+            }
+        });
+        return result;
+    }
 }
