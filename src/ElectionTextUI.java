@@ -190,7 +190,7 @@ public final class ElectionTextUI {
 
         String pollingPlaceName = ValidInputReader.getValidString("Name of polling place:", "^[a-zA-Z0-9 ]+$");
         boolean pollingPlaceFound = false;
-        int totalVotes = Utilities.getTotalVotesFromElection();
+        int totalVotes;
 
         // when the polling place exists,
         for (PollingPlace currentPlace : addedPollingPlaces) {
@@ -198,6 +198,8 @@ public final class ElectionTextUI {
                 System.out.println("Current election results for " + pollingPlaceName + ".");
                 // TODO: show the current results for this polling place
                 pollingPlaceFound = true;
+                totalVotes = Utilities.getTotalVotesFromPollingPlace(currentPlace);
+
 
                 System.out.println("NAME                          PARTY   VOTES     %");
                 for (Map.Entry<Candidate, Integer> currentVote : currentPlace.getPriorityVotes().get(0).entrySet()) {
@@ -230,7 +232,6 @@ public final class ElectionTextUI {
         if(election.isMajority().size()>0) {
             System.out.println("A candidate already has a majority of the votes.");
             System.out.println("You cannot remove any more candidates.");
-            System.out.println("Majority Candidate Name: "+ election.isMajority().keySet().iterator().next().getName() +".");
             return;
         }
 
@@ -244,7 +245,7 @@ public final class ElectionTextUI {
             System.out.println("There is nobody to eliminate.");
             return;
         }
-        System.out.println("Eliminated: " + eliminatedName+".");
+        System.out.println("Eliminated " + eliminatedName+".");
 
     }
 

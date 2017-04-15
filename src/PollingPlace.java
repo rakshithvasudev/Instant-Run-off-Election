@@ -88,6 +88,7 @@ public final class PollingPlace {
             voteCounter=0;
         }
         priorityVotes.add(processedVotesCount);
+        priorityVotes = Utilities.sortMapByVotesAndName(priorityVotes);
     }
 
 

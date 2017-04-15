@@ -107,7 +107,7 @@ public class Election {
     /**
      * Adds data from outside pollPlaces to the main election.
      *
-     * @param pollPlace Actual the polling Place.
+     * @param pollPlace The Actual polling Place.
      * @param votesList preferences list of votes from the outside.
      */
     public void addDataFromPolls(PollingPlace pollPlace, List<Map<Candidate, Integer>> votesList) {
@@ -124,16 +124,15 @@ public class Election {
      */
     public void processVotesAndAssignToCandidates(int i) {
         Arguments.ensureAtMost(i, votesFromPollingPlaces.size());
-        Map<Candidate, Integer> candidateVotesMap;
+        Map<Candidate, Integer> candidateVotesMap=null;
         //go through all the available polling places and get ith preference votes.
-        for (PollingPlace currentPollingPlace : votesFromPollingPlaces.keySet()) {
+        for (PollingPlace currentPollingPlace : votesFromPollingPlaces.keySet())
             // gets the ith vote preference of Map<Candidate, Integer>.
             candidateVotesMap = currentPollingPlace.getPriorityVotes().get(i);
-            //Merge 2 maps adding their respective values in keys.
-            Utilities.mergeMapsAddingIntegerValues(candidateVotesMap, votes);
-           //sort the map.
-           votes = Utilities.sortMapByVotesAndName(votes);
-        }
+        //Merge 2 maps adding their respective values in keys.
+        Utilities.mergeMapsAddingIntegerValues(candidateVotesMap, votes);
+        //sort the map.
+        votes = Utilities.sortMapByVotesAndName(votes);
     }
 
     /**
@@ -159,8 +158,6 @@ public class Election {
      * @return name of the eliminated candidate.
      */
     public String eliminateCandidate(int i) {
-        List<Map.Entry<Candidate,Integer>> eliminationOrderCandidates=
-                Utilities.sortMapForElimination(votes.entrySet());
         Iterator iterator = votes.values().iterator();
         Candidate candidateToBeEliminated;
         String candidateName = "";
@@ -173,15 +170,11 @@ public class Election {
         for (Map.Entry<Candidate, Integer> currentMap : votes.entrySet()) {
             if (currentMap.getValue() == least) {
                 candidateToBeEliminated = currentMap.getKey();
-                if(eliminationOrderCandidates.size()>0)
-                    if(eliminationOrderCandidates.get(0).getValue()==least)
-                    candidateToBeEliminated = eliminationOrderCandidates.get(0).getKey();
                 distributeVotes(candidateToBeEliminated, i);
                 candidateName = candidateToBeEliminated.getName();
                 candidateToBeEliminated.setEliminated(true);
                 votes.remove(candidateToBeEliminated);
-                if(eliminationOrderCandidates.size()>0)
-                    eliminationOrderCandidates.remove(0);
+                votes = Utilities.sortMapByVotesAndName(votes);
                 return candidateName;
             }
         }

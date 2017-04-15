@@ -33,28 +33,29 @@ public class Delete {
             e.printStackTrace();
         }
         belleVue.processVotes();
+        System.out.println(belleVue.getPriorityVotes());
 //        bothell.processVotes();
 //        queen.processVotes();
-        election.addDataFromPolls(belleVue,belleVue.getPriorityVotes());
+//        election.addDataFromPolls(belleVue,belleVue.getPriorityVotes());
 //        election.addDataFromPolls(bothell,bothell.getPriorityVotes());
 //        election.addDataFromPolls(queen,queen.getPriorityVotes());
 
 
 
-        election.processVotesAndAssignToCandidates(i);
+//        election.processVotesAndAssignToCandidates(i);
 //        System.out.println(election.getVotes());
 //        election.eliminateCandidate(i);
 //        System.out.println(election.getVotes());
 //        election.eliminateCandidate(i);
 //        System.out.println(election.getVotes());
 
-        System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
-        election.eliminateCandidate(0);
-        System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
-        election.eliminateCandidate(0);
-        System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
-        election.eliminateCandidate(0);
-        System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
+//        System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
+//        election.eliminateCandidate(0);
+//        System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
+//        election.eliminateCandidate(0);
+//        System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
+//        election.eliminateCandidate(0);
+//        System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
 
 
 

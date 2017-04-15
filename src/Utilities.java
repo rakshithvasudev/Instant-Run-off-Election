@@ -106,6 +106,11 @@ public class Utilities{
         return totalVotes;
     }
 
+
+    public static int getTotalVotesFromPollingPlace(PollingPlace pollingPlace){
+        return pollingPlace.getVotes().size();
+    }
+
     /**
      * Add the key value pairs to the votes, if the key is already added,
      * just update the values, otherwise add newly to the map.
@@ -142,33 +147,44 @@ public class Utilities{
         return result;
     }
 
-    /**
-     * Takes all candidates and removes those candidates whose votes are not the same and
-     * returns a sorted List that can be used.
-     * @param allCandidates all candidates
-     * @return
-     */
-    public static List<Map.Entry<Candidate,Integer>> sortMapForElimination(Set<Map.Entry<Candidate, Integer>> allCandidates) {
-        List<Map.Entry<Candidate,Integer>> result = new ArrayList<>(allCandidates);
-//        System.out.println("before sorted elimnation map: "+ result);
-        List<Map.Entry<Candidate,Integer>> dontRemoveIndices = new ArrayList<>();
-        for (int i=0;i<result.size()-1;i++){
-            if(result.get(i).getValue()==(int)result.get(i+1).getValue()){
-                dontRemoveIndices.add(result.get(i));
-                dontRemoveIndices.add(result.get(i+1));
-            }
-        }
-//        System.out.println("Dont remove these indicies: "+ dontRemoveIndices);
-        result.retainAll(dontRemoveIndices);
-//        System.out.println("After removing non equal votes elements: "+ result);
-        Collections.sort(result, new Comparator<Map.Entry<Candidate, Integer>>() {
-            @Override
-            public int compare(Map.Entry<Candidate, Integer> o1, Map.Entry<Candidate, Integer> o2) {
-                return o2.getKey().compareTo(o1.getKey());
-            }
-        });
 
-//        System.out.println("sorted elimnation map: "+ result );
+    public static List<Map<Candidate,Integer>> sortMapByVotesAndName(List<Map<Candidate, Integer>> priorityVotes) {
+        List<Map<Candidate,Integer>> result = new ArrayList<>();
+        Map<Candidate,Integer> integerMap;
+        for (Map<Candidate, Integer> mapList:priorityVotes) {
+            integerMap = sortMapByVotesAndName(mapList);
+            result.add(integerMap);
+        }
         return result;
     }
+
+//    /**
+//     * Takes all candidates and removes those candidates whose votes are not the same and
+//     * returns a sorted List that can be used.
+//     * @param allCandidates all candidates
+//     * @return
+//     */
+//    public static List<Map.Entry<Candidate,Integer>> sortMapForElimination(Set<Map.Entry<Candidate, Integer>> allCandidates) {
+//        List<Map.Entry<Candidate,Integer>> result = new ArrayList<>(allCandidates);
+////        System.out.println("before sorted elimnation map: "+ result);
+//        List<Map.Entry<Candidate,Integer>> dontRemoveIndices = new ArrayList<>();
+//        for (int i=0;i<result.size()-1;i++){
+//            if(result.get(i).getValue()==(int)result.get(i+1).getValue()){
+//                dontRemoveIndices.add(result.get(i));
+//                dontRemoveIndices.add(result.get(i+1));
+//            }
+//        }
+////        System.out.println("Dont remove these indicies: "+ dontRemoveIndices);
+//        result.retainAll(dontRemoveIndices);
+////        System.out.println("After removing non equal votes elements: "+ result);
+//        Collections.sort(result, new Comparator<Map.Entry<Candidate, Integer>>() {
+//            @Override
+//            public int compare(Map.Entry<Candidate, Integer> o1, Map.Entry<Candidate, Integer> o2) {
+//                return o2.getKey().compareTo(o1.getKey());
+//            }
+//        });
+//
+////        System.out.println("sorted elimnation map: "+ result );
+//        return result;
+//    }
 }
