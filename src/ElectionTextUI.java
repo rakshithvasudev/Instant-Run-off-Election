@@ -244,7 +244,7 @@ public final class ElectionTextUI {
             System.out.println("There is nobody to eliminate.");
             return;
         }
-        System.out.println("Eliminated: " + eliminatedName);
+        System.out.println("Eliminated: " + eliminatedName+".");
 
     }
 

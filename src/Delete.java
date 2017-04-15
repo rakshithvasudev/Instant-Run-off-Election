@@ -35,7 +35,6 @@ public class Delete {
         belleVue.processVotes();
 //        bothell.processVotes();
 //        queen.processVotes();
-//        System.out.println(belleVue.getPriorityVotes());
         election.addDataFromPolls(belleVue,belleVue.getPriorityVotes());
 //        election.addDataFromPolls(bothell,bothell.getPriorityVotes());
 //        election.addDataFromPolls(queen,queen.getPriorityVotes());
@@ -43,13 +42,22 @@ public class Delete {
 
 
         election.processVotesAndAssignToCandidates(i);
-        System.out.println(election.getVotes());
+//        System.out.println(election.getVotes());
 //        election.eliminateCandidate(i);
 //        System.out.println(election.getVotes());
 //        election.eliminateCandidate(i);
 //        System.out.println(election.getVotes());
 
         System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
+        election.eliminateCandidate(0);
+        System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
+        election.eliminateCandidate(0);
+        System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
+        election.eliminateCandidate(0);
+        System.out.println(Utilities.sortMapByVotesAndName(election.getVotes()));
+
+
+
 
     }
 }

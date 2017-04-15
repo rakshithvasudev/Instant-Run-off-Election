@@ -197,6 +197,7 @@ public class Election {
      */
     private void distributeVotes(Candidate candidateToBeEliminated, int i) {
         Candidate nextCandidate;
+        int counter;
         Map<Candidate, Integer> candidateVotesMap = new LinkedHashMap<>();
         List<PollingPlace> addedPlaces = ElectionTextUI.getAddedPollingPlaces();
         for (PollingPlace currentPollingPlace : addedPlaces) {
@@ -206,7 +207,7 @@ public class Election {
                     nextCandidate = Utilities.
                             getCandidateFromString(currentVote.getPreferences().get(i + 1));
                     //if the "nextCandidate" is eliminated, then get the actual next candidate.
-                    for (int counter=2;counter<=currentVote.getPreferences().size() &&
+                    for (counter=2;counter<=currentVote.getPreferences().size() &&
                             nextCandidate.isEliminated();counter++)
                         nextCandidate = Utilities.
                                 getCandidateFromString(currentVote.getPreferences().
