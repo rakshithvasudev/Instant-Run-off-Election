@@ -1,7 +1,7 @@
 /**
  * Created by Rakshith on 4/6/2017.
  */
-public abstract class Candidate implements Cloneable, Comparable{
+public abstract class Candidate implements Cloneable, Comparable {
 
     private String name;
     private boolean isEliminated;
@@ -33,7 +33,7 @@ public abstract class Candidate implements Cloneable, Comparable{
 
     @Override
     public boolean equals(Object obj) {
-        if(obj!=null && getClass()==obj.getClass()) {
+        if (obj != null && getClass() == obj.getClass()) {
             Candidate candidate = (Candidate) obj;
             return (this.name.equals(candidate.name));
         }
@@ -42,11 +42,11 @@ public abstract class Candidate implements Cloneable, Comparable{
 
     @Override
     public Candidate clone() {
-        try{
-           Candidate candidateCopy = (Candidate)super.clone();
-           candidateCopy.party=this.party;
-           return candidateCopy;
-        }catch (CloneNotSupportedException e){
+        try {
+            Candidate candidateCopy = (Candidate) super.clone();
+            candidateCopy.party = this.party;
+            return candidateCopy;
+        } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
         return null;
@@ -55,21 +55,19 @@ public abstract class Candidate implements Cloneable, Comparable{
     @Override
     public int hashCode() {
         int a = 31 * name.hashCode();
-        a=party.hashCode()*a;
-//        a = ((isEliminated) ? 1231 : 1237) * a;
+        a = party.hashCode() * a;
         return a;
     }
 
     @Override
     public String toString() {
-//        return "Candidate name is: "+ name + " who is "+
-//                (isEliminated?" Eliminated. ":" Not Eliminated.");
-    return name;
+        return name;
     }
 
 
     /**
      * Compares by name.
+     *
      * @param o other Object
      * @return >1 if this candidate has an
      * alphabetically larger name than compared name.
@@ -79,7 +77,7 @@ public abstract class Candidate implements Cloneable, Comparable{
      */
     @Override
     public int compareTo(Object o) {
-        Candidate other = (Candidate)o;
+        Candidate other = (Candidate) o;
         return this.name.compareTo(other.name);
     }
 }

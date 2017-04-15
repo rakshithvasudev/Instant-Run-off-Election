@@ -8,7 +8,7 @@ public class CandidateFactoryTest {
     @Test
     public void ConstructorTest(){
 
-
+    CandidateFactory candidateFactory = new CandidateFactory();
 
 
     }

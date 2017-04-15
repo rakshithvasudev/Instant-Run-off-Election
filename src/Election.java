@@ -124,7 +124,7 @@ public class Election {
      */
     public void processVotesAndAssignToCandidates(int i) {
         Arguments.ensureAtMost(i, votesFromPollingPlaces.size());
-        Map<Candidate, Integer> candidateVotesMap=null;
+        Map<Candidate, Integer> candidateVotesMap = null;
         //go through all the available polling places and get ith preference votes.
         for (PollingPlace currentPollingPlace : votesFromPollingPlaces.keySet())
             // gets the ith vote preference of Map<Candidate, Integer>.
@@ -154,6 +154,7 @@ public class Election {
     /**
      * Removes the candidate having least votes from the election by distributing his votes
      * to the next preferences votes.
+     *
      * @param i ith preference votes.
      * @return name of the eliminated candidate.
      */
@@ -200,8 +201,8 @@ public class Election {
                     nextCandidate = Utilities.
                             getCandidateFromString(currentVote.getPreferences().get(i + 1));
                     //if the "nextCandidate" is eliminated, then get the actual next candidate.
-                    for (counter=2;counter<=currentVote.getPreferences().size() &&
-                            nextCandidate.isEliminated();counter++)
+                    for (counter = 2; counter <= currentVote.getPreferences().size() &&
+                            nextCandidate.isEliminated(); counter++)
                         nextCandidate = Utilities.
                                 getCandidateFromString(currentVote.getPreferences().
                                         get(i + counter));
