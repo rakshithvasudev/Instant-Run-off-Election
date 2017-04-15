@@ -4,6 +4,7 @@
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -187,34 +188,65 @@ public final class ElectionTextUI {
             System.out.println("You must close the election before viewing results.");
             return;
         }
-
         String pollingPlaceName = ValidInputReader.getValidString("Name of polling place:", "^[a-zA-Z0-9 ]+$");
-        boolean pollingPlaceFound = false;
+        PollingPlace requiredPollingPlace=null;
         int totalVotes;
-
+        List<Candidate> allCandidates=null;
+        Candidate nextCandidate;
+        Map<Candidate,Integer> candidateVotesMap = new LinkedHashMap<>();
         // when the polling place exists,
         for (PollingPlace currentPlace : addedPollingPlaces) {
             if (currentPlace.getName().equals(pollingPlaceName)) {
                 System.out.println("Current election results for " + pollingPlaceName + ".");
                 // TODO: show the current results for this polling place
-                pollingPlaceFound = true;
-                totalVotes = Utilities.getTotalVotesFromPollingPlace(currentPlace);
-
-
-                System.out.println("NAME                          PARTY   VOTES     %");
-                for (Map.Entry<Candidate, Integer> currentVote : currentPlace.getPriorityVotes().get(0).entrySet()) {
-                    System.out.printf("%-30s%-8s%5d%9.1f\n",
-                            currentVote.getKey().getName(),
-                            currentVote.getKey().getParty(),
-                            currentVote.getValue(),
-                            (currentVote.getValue() / (double) totalVotes) * 100);
-                }
+                requiredPollingPlace = currentPlace;
+                allCandidates = new ArrayList<>(requiredPollingPlace.getPriorityVotes().get(0).keySet());
+                break;
             }
         }
 
+        if(requiredPollingPlace!=null){
+            for (Candidate currentCandidate: allCandidates){
+                for (Vote currentVote: requiredPollingPlace.getVotes()) {
+                    if(currentCandidate.isEliminated() &&
+                            currentCandidate.getName().equals(currentVote.getPreferences().get(0))) {
+                            nextCandidate = Utilities.getCandidateFromString(currentVote.
+                                    getPreferences().get(1));
+                        for (int counter=2;counter<currentVote.getPreferences().size() &&
+                                nextCandidate.isEliminated();counter++)
+                            nextCandidate = Utilities.
+                                    getCandidateFromString(currentVote.getPreferences().
+                                            get(counter));
+                        requiredPollingPlace.getPriorityVotes().get(0).entrySet().
+                                removeIf(candidateIntegerEntry ->
+                                        candidateIntegerEntry.getKey().isEliminated());
+                        candidateVotesMap.entrySet().removeIf(candidateIntegerEntry ->
+                                candidateIntegerEntry.getKey().isEliminated());
+                        candidateVotesMap.put(nextCandidate,1);
+                        Utilities.mergeMapsAddingIntegerValues(candidateVotesMap,
+                                requiredPollingPlace.getPriorityVotes().get(0));
+                    }
+                }
+            }
+
+            totalVotes = Utilities.getTotalVotesFromPollingPlace(requiredPollingPlace);
+            System.out.println("NAME                          PARTY   VOTES     %");
+            for (Map.Entry<Candidate, Integer> currentVote : requiredPollingPlace.getPriorityVotes().get(0).entrySet()) {
+                if(!currentVote.getKey().isEliminated())
+                System.out.printf("%-30s%-8s%5d%9.1f\n",
+                        currentVote.getKey().getName(),
+                        currentVote.getKey().getParty(),
+                        currentVote.getValue(),
+                        (currentVote.getValue() / (double) totalVotes) * 100);
+            }
+        }
+
+
         // when the polling place doesn't exist,
-        if (!pollingPlaceFound)
+        if (requiredPollingPlace==null)
             System.out.println("No such polling place was found.");
+
+
     }
 
     // Called when E key is pressed from main menu.

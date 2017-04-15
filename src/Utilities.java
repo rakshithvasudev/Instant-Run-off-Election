@@ -108,7 +108,11 @@ public class Utilities{
 
 
     public static int getTotalVotesFromPollingPlace(PollingPlace pollingPlace){
-        return pollingPlace.getVotes().size();
+        int totalVotes=0;
+        for (Integer currentCount : pollingPlace.getPriorityVotes().get(0).values())
+            totalVotes += currentCount;
+        return totalVotes;
+
     }
 
     /**
