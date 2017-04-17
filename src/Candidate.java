@@ -1,5 +1,10 @@
 /**
  * Created by Rakshith on 4/6/2017.
+ * This class is responsible for having common
+ * characteristics for candidates. This is made abstract
+ * in order to allow this to be used by the CandidateFactory class.
+ * Implements cloneable and comparable to allow cloning and comparing
+ * mechanisms to be done.
  */
 public abstract class Candidate implements Cloneable, Comparable {
 
@@ -31,11 +36,18 @@ public abstract class Candidate implements Cloneable, Comparable {
         this.party = partyName;
     }
 
+    /**
+     * compares if the current object is same as the
+     * passed object. Looks for the name and party specifically.
+     *
+     * @param obj object to be compared.
+     * @return true if the objects are the same.
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj != null && getClass() == obj.getClass()) {
             Candidate candidate = (Candidate) obj;
-            return (this.name.equals(candidate.name));
+            return (this.name.equals(candidate.name) && this.party.equals(candidate.getParty()));
         }
         return false;
     }

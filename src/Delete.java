@@ -19,7 +19,7 @@ public class Delete {
             e.printStackTrace();
         }
 
-        PollingPlace belleVue = new PollingPlace("bellevue");
+        PollingPlace belleVue = new PollingPlace("redmond");
         ElectionTextUI.addedPollingPlaces.add(belleVue);
 //        PollingPlace bothell = new PollingPlace("bothell");
 //        ElectionTextUI.addedPollingPlaces.add(bothell);
@@ -33,17 +33,18 @@ public class Delete {
             e.printStackTrace();
         }
         belleVue.processVotes();
-        System.out.println(belleVue.getPriorityVotes());
+//        System.out.println(belleVue.getPriorityVotes());
 //        bothell.processVotes();
 //        queen.processVotes();
-//        election.addDataFromPolls(belleVue,belleVue.getPriorityVotes());
+        election.addDataFromPolls(belleVue,belleVue.getPriorityVotes());
 //        election.addDataFromPolls(bothell,bothell.getPriorityVotes());
 //        election.addDataFromPolls(queen,queen.getPriorityVotes());
 
 
 
-//        election.processVotesAndAssignToCandidates(i);
-//        System.out.println(election.getVotes());
+
+        election.processVotesAndAssignToCandidates(0);
+        System.out.println(election.getVotes());
 //        election.eliminateCandidate(i);
 //        System.out.println(election.getVotes());
 //        election.eliminateCandidate(i);

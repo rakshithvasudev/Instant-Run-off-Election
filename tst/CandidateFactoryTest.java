@@ -1,6 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.internal.runners.statements.ExpectException;
+
 
 /**
  * Created by Rakshith on 4/10/2017.

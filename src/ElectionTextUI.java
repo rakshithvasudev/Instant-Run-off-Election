@@ -196,7 +196,7 @@ public final class ElectionTextUI {
         Map<Candidate,Integer> candidateVotesMap = new LinkedHashMap<>();
         // when the polling place exists,
         for (PollingPlace currentPlace : addedPollingPlaces) {
-            if (currentPlace.getName().equals(pollingPlaceName)) {
+            if (currentPlace.getName().equalsIgnoreCase(pollingPlaceName)) {
                 System.out.println("Current election results for " + pollingPlaceName + ".");
                 // TODO: show the current results for this polling place
                 requiredPollingPlace = currentPlace;

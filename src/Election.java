@@ -7,6 +7,8 @@ import java.util.*;
  * Created by Rakshith on 4/7/2017.
  * Uses singleton pattern for Election class.
  * There could be just one and only instance of Election.
+ * Handles all possible events of Election at the moment.
+ * This is the core class for election.
  */
 public class Election {
 
