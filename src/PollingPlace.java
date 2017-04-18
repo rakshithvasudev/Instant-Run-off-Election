@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by Rakshith on 4/8/2017.
  */
-public final class PollingPlace {
+public final class PollingPlace implements Cloneable {
     private String name;
     private List<Vote> votes;
     private List<Map<Candidate,Integer>> priorityVotes;
@@ -136,10 +136,26 @@ public final class PollingPlace {
     public boolean equals(Object obj) {
         if(obj!=null && getClass()== obj.getClass()) {
             PollingPlace PollingObj  =(PollingPlace)obj;
-            return name.equals(PollingObj.name);
+            return this.name.equals(PollingObj.name);
         }
         return false;
     }
+
+
+    @Override
+    public PollingPlace clone() {
+        try{
+            PollingPlace pollingPlaceClone = (PollingPlace)super.clone();
+            pollingPlaceClone.votes= new ArrayList<>(this.votes);
+            pollingPlaceClone.priorityVotes = new ArrayList<>(this.priorityVotes);
+            return pollingPlaceClone;
+        }catch (CloneNotSupportedException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 
     @Override
     public int hashCode() {

@@ -93,6 +93,58 @@ public class PollingPlaceTest {
     }
 
 
+    @Test
+    public void getVotesTest(){
+        //Given (Arrange)
+        Election election = Election.getElectionInstance();
+        PollingPlace pollingPlace;
+        //When(Action)
+        pollingPlace = new PollingPlace("queen-anne");
+        doRepeatitiveTasks(pollingPlace,election);
+        // Then(Assert)
+        Assert.assertTrue(pollingPlace.getVotes().size()>0);
+    }
+
+
+    @Test
+    public void equalsTest(){
+        //Given (Arrange)
+        PollingPlace pollingPlace1, pollingPlace2;
+        //When(Action)
+        pollingPlace1=new PollingPlace("queen-anne");
+        pollingPlace2 = pollingPlace1.clone();
+
+        // Then(Assert)
+        Assert.assertTrue(pollingPlace1.equals(pollingPlace2));
+    }
+
+
+
+    @Test
+    public void equalsTest2(){
+        //Given (Arrange)
+        PollingPlace pollingPlace1, pollingPlace2;
+        //When(Action)
+        pollingPlace1=  new PollingPlace("queen-anne");
+        pollingPlace2 = pollingPlace1.clone();
+
+        // Then(Assert)
+        Assert.assertFalse(pollingPlace1 == (pollingPlace2));
+    }
+
+
+    @Test
+    public void cloneTest(){
+        //Given (Arrange)
+        PollingPlace pollingPlace1, pollingPlace2;
+        //When(Action)
+        pollingPlace1=new PollingPlace("redmond");
+        pollingPlace2 = pollingPlace1.clone();
+
+        // Then(Assert)
+        Assert.assertTrue(pollingPlace1.equals(pollingPlace2));
+    }
+
 
     @Test
     public void toStringTest(){
@@ -108,6 +160,21 @@ public class PollingPlaceTest {
     }
 
 
+    @Test
+    public void hashCodeTest(){
+        //Given (Arrange)
+        PollingPlace pollingPlace, pollingPlace1;
+        //When(Action)
+        pollingPlace = new PollingPlace("queen-anne");
+        pollingPlace1= pollingPlace.clone();
+
+        // Then(Assert)
+        Assert.assertTrue(pollingPlace.hashCode()==pollingPlace1.hashCode());
+    }
+
+
+
+
 
 
     /**
@@ -121,7 +188,7 @@ public class PollingPlaceTest {
         try {
             pollingPlace.readVotes();
             election.readCandidates();
-        } catch (FileNotFoundException e) {
+        }catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         pollingPlace.processVotes();
