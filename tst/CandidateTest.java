@@ -132,6 +132,56 @@ public class CandidateTest {
         Assert.assertTrue(candidate1.equals(candidate2));
     }
 
+    @Test
+    public void equalsTest4(){
+        //Given (Arrange)
+        Candidate candidate1, candidate2;
+        //When(Action)
+        candidate1 = new RegisteredCandidate("James Gosling",Party.LIB);
+        candidate2 = new RegisteredCandidate("James Gosling",Party.LIB);
+        // Then(Assert)
+        Assert.assertFalse(candidate1==(candidate2));
+    }
+
+    @Test
+    public void cloneTest(){
+        //Given (Arrange)
+        Candidate candidate1, candidate2;
+        //When(Action)
+        candidate1 = new RegisteredCandidate("James Gosling",Party.LIB);
+        candidate2 = candidate1.clone();
+        // Then(Assert)
+        Assert.assertFalse(candidate1==(candidate2));
+    }
+
+
+    @Test
+    public void cloneTest2(){
+        //Given (Arrange)
+        Candidate candidate1, candidate2;
+        //When(Action)
+        candidate1 = new RegisteredCandidate("James Gosling",Party.LIB);
+        candidate2 = candidate1.clone();
+        // Then(Assert)
+        Assert.assertTrue(candidate1.getName().equals(candidate2.getName()) &&
+                candidate1.getParty()==candidate2.getParty());
+    }
+
+
+    @Test
+    public void hashCodeTest(){
+        //Given (Arrange)
+        Candidate candidate1, candidate2;
+        //When(Action)
+        candidate1 = new RegisteredCandidate("James Gosling",Party.LIB);
+        candidate2 = candidate1.clone();
+        // Then(Assert)
+        Assert.assertTrue(candidate1.hashCode()==(candidate2).hashCode());
+    }
+
+
+
+
 
 
 
