@@ -36,6 +36,7 @@ public class Delete {
 //        System.out.println(belleVue.getPriorityVotes());
 //        bothell.processVotes();
 //        queen.processVotes();
+        System.out.println(belleVue.getPriorityVotes());
         election.addDataFromPolls(belleVue,belleVue.getPriorityVotes());
 //        election.addDataFromPolls(bothell,bothell.getPriorityVotes());
 //        election.addDataFromPolls(queen,queen.getPriorityVotes());

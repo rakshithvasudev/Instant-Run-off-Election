@@ -116,6 +116,7 @@ public final class ElectionTextUI {
             System.out.println("Added " + pollingPlaceName + ".");
         } catch (Exception e) {
             // when the polling place is not found,
+            e.printStackTrace();
             System.out.println("No such polling place was found.");
         }
     }

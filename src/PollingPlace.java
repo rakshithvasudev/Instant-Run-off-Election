@@ -33,6 +33,7 @@ public final class PollingPlace {
         //Get the correct file name from the argument passed.
         String actualFileName = "ballots-"+name.toLowerCase().
                 replaceAll("\\s","-")+".txt";
+
         try {
             Scanner scanner = new Scanner(new File(actualFileName)).useDelimiter("\n");
             while (scanner.hasNext()){
