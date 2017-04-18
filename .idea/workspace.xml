@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53ef6229-3e26-402a-a3f7-ff785bd5a834" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PollingPlace.java" afterPath="$PROJECT_DIR$/src/PollingPlace.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tst/PollingPlaceTest.java" afterPath="$PROJECT_DIR$/tst/PollingPlaceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tst/PartyTest.java" afterPath="$PROJECT_DIR$/tst/PartyTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,11 +46,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PollingPlaceTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Party.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Party.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PartyTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tst/PartyTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1444">
+              <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PollingPlaceTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tst/PollingPlaceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5719">
-              <caret line="166" column="22" lean-forward="true" selection-start-line="166" selection-start-column="22" selection-end-line="166" selection-end-column="22" />
+            <state relative-caret-position="265">
+              <caret line="137" column="6" lean-forward="true" selection-start-line="137" selection-start-column="6" selection-end-line="144" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -146,6 +167,7 @@
         <option value="$PROJECT_DIR$/tst/ElectionTest.java" />
         <option value="$PROJECT_DIR$/src/PollingPlace.java" />
         <option value="$PROJECT_DIR$/tst/PollingPlaceTest.java" />
+        <option value="$PROJECT_DIR$/tst/PartyTest.java" />
       </list>
     </option>
   </component>
@@ -242,28 +264,7 @@
       <recent name="C:\Users\Rakshith\Desktop\CBU hws\CSC526\Election\solution\src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PollingPlaceTest.hashCodeTest">
-    <configuration default="false" name="PollingPlaceTest.getVotes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="CSC526-HW5" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PollingPlaceTest" />
-      <option name="METHOD_NAME" value="getVotes" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.PartyTest.usageTest2">
     <configuration default="false" name="PollingPlaceTest.cloneTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="CSC526-HW5" />
@@ -272,27 +273,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PollingPlaceTest" />
       <option name="METHOD_NAME" value="cloneTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="PollingPlaceTest.equalsTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="CSC526-HW5" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PollingPlaceTest" />
-      <option name="METHOD_NAME" value="equalsTest2" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -335,6 +315,48 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PollingPlaceTest" />
       <option name="METHOD_NAME" value="hashCodeTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="PartyTest.usageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="CSC526-HW5" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PartyTest" />
+      <option name="METHOD_NAME" value="usageTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="PartyTest.usageTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="CSC526-HW5" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PartyTest" />
+      <option name="METHOD_NAME" value="usageTest2" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -769,19 +791,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest.getVotes" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest.cloneTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest.equalsTest2" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest.hashCodeTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest.cloneTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest.hashCodeTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.PartyTest.usageTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.PartyTest.usageTest2" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest.hashCodeTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest.cloneTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest.equalsTest2" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest.getVotes" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.PartyTest.usageTest2" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.PartyTest.usageTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest.hashCodeTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.PollingPlaceTest.cloneTest" />
       </list>
     </recent_temporary>
   </component>
@@ -818,16 +840,22 @@
       <workItem from="1492273033772" duration="16054000" />
       <workItem from="1492299841664" duration="23000" />
       <workItem from="1492460512938" duration="9967000" />
-      <workItem from="1492475889468" duration="14493000" />
+      <workItem from="1492475889468" duration="14780000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="PartyTest_usageTest - 2017.04.17 at 23h 42m 47s.xml">
+      <configuration name="PartyTest.usageTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PartyTest_usageTest2 - 2017.04.17 at 23h 43m 17s.xml">
+      <configuration name="PartyTest.usageTest2" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="PollingPlaceTest - 2017.04.17 at 23h 36m 22s.xml">
       <configuration name="PollingPlaceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PollingPlaceTest_cloneTest - 2017.04.17 at 23h 27m 07s.xml">
-      <configuration name="PollingPlaceTest.cloneTest" configurationId="JUnit" />
+    <history-entry file="PollingPlaceTest - 2017.04.17 at 23h 39m 14s.xml">
+      <configuration name="PollingPlaceTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="PollingPlaceTest_cloneTest - 2017.04.17 at 23h 32m 58s.xml">
       <configuration name="PollingPlaceTest.cloneTest" configurationId="JUnit" />
@@ -844,18 +872,12 @@
     <history-entry file="PollingPlaceTest_equalsTest2 - 2017.04.17 at 23h 35m 29s.xml">
       <configuration name="PollingPlaceTest.equalsTest2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PollingPlaceTest_getVotes - 2017.04.17 at 23h 17m 25s.xml">
-      <configuration name="PollingPlaceTest.getVotes" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PollingPlaceTest_getVotes - 2017.04.17 at 23h 18m 13s.xml">
-      <configuration name="PollingPlaceTest.getVotes" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PollingPlaceTest_hashCodeTest - 2017.04.17 at 23h 38m 30s.xml">
       <configuration name="PollingPlaceTest.hashCodeTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193484000" />
+    <option name="totallyTimeSpent" value="193771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="0" width="3856" height="2098" extended-state="0" />
@@ -876,7 +898,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294956" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16911961" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16911961" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24993311" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -917,11 +939,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294956" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294956" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294956" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294956" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16911961" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16911961" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1039,13 +1061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
           <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tst/PartyTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1202,14 +1217,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Party.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1352,6 +1359,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tst/PollingPlaceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="137" column="6" lean-forward="true" selection-start-line="137" selection-start-column="6" selection-end-line="144" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Party.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/PollingPlace.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6890">
@@ -1365,10 +1390,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tst/PollingPlaceTest.java">
+    <entry file="file://$PROJECT_DIR$/tst/PartyTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5719">
-          <caret line="166" column="22" lean-forward="true" selection-start-line="166" selection-start-column="22" selection-end-line="166" selection-end-column="22" />
+        <state relative-caret-position="1444">
+          <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
