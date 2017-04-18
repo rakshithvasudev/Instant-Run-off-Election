@@ -25,7 +25,7 @@ public final class PollingPlace {
      * Also handles any small mistakes in the spelling during vote
      * cast according to the spec that there could be utmost 3 edit
      * distances.
-     *Also converts any empty spaces, to "-".
+     * Also converts any empty spaces, to "-".
      *
      * @return true when successfully read.
      */

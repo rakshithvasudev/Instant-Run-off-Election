@@ -37,7 +37,7 @@ public class ElectionTest {
      * Checks for correct operation of singleton pattern.
      */
     @Test
-    public void singleTonTest(){
+    public void singletonTest(){
         //Given (Arrange)
         Election election, election1;
         //When(Action)
@@ -155,7 +155,7 @@ public class ElectionTest {
         election.eliminateCandidate(0);
         //second run off
         election.eliminateCandidate(0);
-        
+
         // Then(Assert)
         Assert.assertTrue(election.isMajority().size()>0);
     }
@@ -171,14 +171,11 @@ public class ElectionTest {
     private static void doRepetitiveTasks(Election election, PollingPlace pollingPlace ){
         try {
             pollingPlace.readVotes();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
             election.readCandidates();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
         pollingPlace.processVotes();
         election.addDataFromPolls(pollingPlace,pollingPlace.getPriorityVotes());
         election.processVotesAndAssignToCandidates(0);
