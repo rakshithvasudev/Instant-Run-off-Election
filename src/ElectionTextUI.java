@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public final class ElectionTextUI {
     //After deleting Delete.java class, then initialize in consturctor
-    static List<PollingPlace> addedPollingPlaces = new ArrayList<>();
+    static List<PollingPlace> addedPollingPlaces;
     Election election;
     int i;
 
@@ -29,6 +29,7 @@ public final class ElectionTextUI {
         System.out.println("Election Vote Counter");
 
         // TODO: initialization code can go here
+        addedPollingPlaces = new ArrayList<>();
         election = election.getElectionInstance();
         i=0;
 
