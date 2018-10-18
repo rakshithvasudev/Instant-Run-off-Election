@@ -1,4 +1,4 @@
-# CSC526 - HW5- Instant run off Election.
+# Instant run off Election.
 This Java Program a set of supporting classes for an election vote-counting system implementing 
 instant run off election.
 
